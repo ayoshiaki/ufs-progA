@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
+from utils.navegacao import cabecalho
 
-st.subheader("Fase 4 — 🔧 Modificar")
+cabecalho(__file__)
 st.markdown(
     """
 Parta do acumulador de soma e transforme-o num programa que **conta quantos

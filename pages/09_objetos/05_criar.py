@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_expressoes_sandbox
+from utils.navegacao import cabecalho, rodape_tema
 
-st.subheader("Fase 5 — 🛠️ Criar (entrega)")
+cabecalho(__file__)
 st.markdown(
     """
 Hora de resolver sozinho. Escreva a **classe** `ContaBancaria` completa:
@@ -46,3 +47,5 @@ exercicio_expressoes_sandbox(
     dica="Em `depositar`: `self.saldo = self.saldo + valor`. Em `sacar`: `if valor <= self.saldo: self.saldo = self.saldo - valor`.",
     nome_tarefa="tema9_conta_bancaria",
 )
+
+rodape_tema(__file__)

@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
+from utils.navegacao import cabecalho
 
-st.subheader("Fase 2 — ▶️ Rodar")
+cabecalho(__file__)
 st.markdown("Confirme sua previsão: este programa deve imprimir `60`.")
 
 exercicio_saida(

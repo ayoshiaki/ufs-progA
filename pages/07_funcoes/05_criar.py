@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_funcao_sandbox
+from utils.navegacao import cabecalho, rodape_tema
 
-st.subheader("Fase 5 — 🛠️ Criar (entrega)")
+cabecalho(__file__)
 st.markdown(
     """
 Hora de resolver sozinho. Escreva uma **função** com **três parâmetros**,
@@ -32,3 +33,5 @@ exercicio_funcao_sandbox(
     dica="O total e `preco * qtd - desconto`. Use `return` (nao `print`).",
     nome_tarefa="tema7_total_compra",
 )
+
+rodape_tema(__file__)

@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_funcao_sandbox
+from utils.navegacao import cabecalho, rodape_tema
 
-st.subheader("Fase 5 — 🛠️ Criar (entrega)")
+cabecalho(__file__)
 st.markdown(
     """
 Escreva a função `media(notas)` que recebe uma **lista de números** e devolve a
@@ -25,3 +26,5 @@ exercicio_funcao_sandbox(
     dica="Some num laco (ou use sum) e divida por len. Trate a lista vazia ANTES de dividir.",
     nome_tarefa="tema4_media",
 )
+
+rodape_tema(__file__)

@@ -59,4 +59,18 @@ stb.set_book_config(
         "list-ul", "fonts", "box", "file-earmark", "diagram-3", "diagram-3-fill",
     ],
     save_answers=True,
+    # Esconde a legenda "Page X of Y. File: <caminho>" (vazava o caminho do
+    # arquivo na tela) e destaca o capítulo ativo no menu lateral.
+    display_page_info=False,
+    styles={
+        "container": {"padding": "0.5rem 0.3rem"},
+        "icon": {"font-size": "0.95rem"},
+        "nav-link": {
+            "font-size": "0.92rem",
+            "padding": "0.45rem 0.6rem",
+            "margin": "0.12rem 0",
+            "border-radius": "8px",
+        },
+        "nav-link-selected": {"background-color": "#ff4b4b", "font-weight": "600"},
+    },
 )

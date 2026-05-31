@@ -1,7 +1,11 @@
-import streamlit as st
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 
-st.title("Tema 7 · Funções")
-st.subheader("Fase 0 — Aquecimento")
+import streamlit as st
+from utils.navegacao import cabecalho_intro
+
+cabecalho_intro(__file__)
 
 st.markdown(
     """

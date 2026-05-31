@@ -1,7 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
 import streamlit as st
 import streamlit_book as stb
+from utils.navegacao import cabecalho
 
-st.subheader("Fase 1 — 🔮 Prever")
+cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
 
 st.code(

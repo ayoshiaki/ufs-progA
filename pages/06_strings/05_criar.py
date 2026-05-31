@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_funcao_sandbox
+from utils.navegacao import cabecalho, rodape_tema
 
-st.subheader("Fase 5 — 🛠️ Criar (entrega)")
+cabecalho(__file__)
 st.markdown(
     """
 Hora de resolver sozinho. Escreva uma **função** `eh_palindromo(texto)` que
@@ -36,3 +37,5 @@ exercicio_funcao_sandbox(
     dica='Tire espacos com `texto.replace(" ", "")`, use `.lower()`, e compare com `texto[::-1]`.',
     nome_tarefa="tema6_eh_palindromo",
 )
+
+rodape_tema(__file__)

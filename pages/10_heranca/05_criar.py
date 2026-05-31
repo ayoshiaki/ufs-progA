@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_expressoes_sandbox
+from utils.navegacao import cabecalho, rodape_tema
 
-st.subheader("Fase 5 — 🛠️ Criar (entrega)")
+cabecalho(__file__)
 st.markdown(
     """
 Hora de resolver sozinho. Escreva a hierarquia de formas:
@@ -52,3 +53,5 @@ exercicio_expressoes_sandbox(
     dica="Retangulo: `return self.base * self.altura`. Circulo: `return 3.14159 * self.raio * self.raio`.",
     nome_tarefa="tema10_formas",
 )
+
+rodape_tema(__file__)

@@ -4,8 +4,9 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_funcao_sandbox
+from utils.navegacao import cabecalho, rodape_tema
 
-st.subheader("Fase 5 — 🛠️ Criar (entrega)")
+cabecalho(__file__)
 st.markdown(
     """
 Hora de resolver sozinho. Escreva uma **função** `celsius_para_fahrenheit(c)`
@@ -26,3 +27,5 @@ exercicio_funcao_sandbox(
     dica="A formula e `c * 9 / 5 + 32`. Use `return` (nao `print`).",
     nome_tarefa="tema2_celsius_fahrenheit",
 )
+
+rodape_tema(__file__)
