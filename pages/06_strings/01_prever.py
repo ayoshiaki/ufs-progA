@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
@@ -43,3 +43,5 @@ stb.single_choice(
     success="Exato! `.lower()` deixa tudo minúsculo (`python`) e `len` conta 6 letras.",
     error="`.lower()` deixa minúsculo; `len(\"Python\")` conta as 6 letras.",
 )
+
+rodape_fases(__file__)

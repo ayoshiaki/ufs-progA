@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.navegacao import cabecalho_intro
+from utils.navegacao import cabecalho_intro, rodape_fases
 
 cabecalho_intro(__file__)
 
@@ -34,3 +34,5 @@ class ContaBancaria:
 )
 
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
+
+rodape_fases(__file__)

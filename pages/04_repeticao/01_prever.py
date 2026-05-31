@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 
@@ -39,3 +39,5 @@ stb.single_choice(
     success="Exato! `range(3)` gera 0, 1, 2 — começa no 0 e NÃO inclui o 3.",
     error="`range(n)` vai de 0 até n-1. Quantos números são, e quais?",
 )
+
+rodape_fases(__file__)

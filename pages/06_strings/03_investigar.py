@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Agora o *porquê*. Pense em como comparar textos com segurança.")
@@ -35,3 +35,5 @@ stb.multiple_choice(
     success="Mandou bem! Fatiar, `.lower()` e `.replace()` criam textos novos — e você NÃO pode alterar uma letra no lugar (string é imutável).",
     error="Revise: dá para fazer `texto[0] = \"X\"`? (Não — string é imutável.) O que `.replace(\" \", \"\")` faz?",
 )
+
+rodape_fases(__file__)

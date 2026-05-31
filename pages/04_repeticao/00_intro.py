@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.navegacao import cabecalho_intro
+from utils.navegacao import cabecalho_intro, rodape_fases
 
 cabecalho_intro(__file__)
 
@@ -19,3 +19,5 @@ reescrevê-la. Em Python, o laço `for` percorre cada item de uma coleção.
 > que vão *mudando* a cada volta do laço. Quais são?
 """
 )
+
+rodape_fases(__file__)

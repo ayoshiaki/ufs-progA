@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -30,3 +30,5 @@ faz o Python guardar um `float` (`68.0`). O **tipo** do valor importa tanto
 quanto o valor.
 """
 )
+
+rodape_fases(__file__)

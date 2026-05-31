@@ -38,6 +38,11 @@ Mapas únicos `TEMAS` (1→10, nomes sem prefixo numérico, espelhando
   `st.title("Tema N · Nome")` + `st.subheader("Fase 0 — Aquecimento")`.
 - `rodape_tema(arquivo)` — `st.success` "Tema N de 10 concluído… siga para o
   Tema N+1 · Nome"; no Tema 10, mensagem de fim de curso.
+- `rodape_fases(arquivo)` — botões de navegação no rodapé de **toda** página:
+  "‹ <fase anterior>" e "<próxima fase> ›" (nomeando a fase). Reaproveita
+  `on_previous_click`/`on_next_click` do `streamlit_book` (mesmo
+  `page_number` dos botões ‹ › do topo). Intro mostra só "próxima"; Criar mostra
+  só "anterior" (o próximo passo é o tema seguinte, via `rodape_tema`).
 - `mapa_curso()` — grade 2×5 dos 10 temas (`st.columns`).
 - `legenda_fases()` — fila das 5 fases PRIMM (`st.columns(5)`).
 

@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
@@ -52,3 +52,5 @@ stb.single_choice(
     success="Exato! `c1` e `c2` são objetos independentes — cada um tem o seu `saldo`. Depositar em `c1` não toca em `c2`.",
     error="`c1` e `c2` são contas separadas. Mexer em `c1` não muda `c2`, que continua com 0.",
 )
+
+rodape_fases(__file__)

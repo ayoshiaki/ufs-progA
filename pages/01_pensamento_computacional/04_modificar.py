@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -33,3 +33,5 @@ exercicio_saida(
     ),
     dica="Crie `total = total - 2` (ou `total -= 2`) antes do print, e troque o texto da mensagem.",
 )
+
+rodape_fases(__file__)

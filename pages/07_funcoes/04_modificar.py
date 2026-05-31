@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -32,3 +32,5 @@ exercicio_saida(
     ),
     dica="Mude a assinatura para `def total(preco, qtd, desconto):`, faça `return preco * qtd - desconto` e chame `total(10, 3, 5)`.",
 )
+
+rodape_fases(__file__)

@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Confirme sua previsão: este programa deve imprimir `60`.")
@@ -21,3 +21,5 @@ st.info(
     "🔑 Padrão do **acumulador**: criar uma variável *antes* do laço (aqui `soma = 0`) "
     "e atualizá-la *dentro* do laço. Você vai reusar isso a vida toda."
 )
+
+rodape_fases(__file__)

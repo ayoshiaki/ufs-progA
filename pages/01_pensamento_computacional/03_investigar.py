@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Agora o *porquê*. Pense em como o computador executa o programa.")
@@ -35,3 +35,5 @@ stb.multiple_choice(
     success="Mandou bem! O print aceita vários valores separados por vírgula e os mostra com espaço entre eles.",
     error="Revise: o que está entre aspas? O que a vírgula faz?",
 )
+
+rodape_fases(__file__)

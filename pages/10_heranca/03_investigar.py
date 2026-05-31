@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Agora o *porquê*. Pense em herança e polimorfismo.")
@@ -35,3 +35,5 @@ stb.multiple_choice(
     success="Mandou bem! A filha herda tudo, pode redefinir o que quiser, e o mesmo método se comporta conforme o objeto — sem precisar reescrever o que não muda.",
     error="Revise: ao herdar, você é obrigado a reescrever todos os métodos? (Não — só os que quiser mudar.)",
 )
+
+rodape_fases(__file__)

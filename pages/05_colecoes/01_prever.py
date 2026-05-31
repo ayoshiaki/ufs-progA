@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
@@ -42,3 +42,5 @@ stb.single_choice(
     success="Exato! Em listas a contagem começa do ZERO: `frutas[0]` é maçã, `frutas[1]` é banana.",
     error="Cuidado: a posição começa em 0. `frutas[0]` = maçã, então `frutas[1]` = banana.",
 )
+
+rodape_fases(__file__)

@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
@@ -47,3 +47,5 @@ stb.single_choice(
     success="Exato! A função usa `print` mas não tem `return`, então ela devolve `None`. Por isso `resultado` vale `None`.",
     error="A função imprime, mas NÃO tem `return` — então devolve `None`. Guardar isso em `resultado` mostra `None`.",
 )
+
+rodape_fases(__file__)

@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Agora o *porquê*. Pense em tipos e na ordem das operações.")
@@ -35,3 +35,5 @@ stb.multiple_choice(
     success="Mandou bem! `/` dá float, `//` dá int, e aspas transformam qualquer coisa em texto (`str`).",
     error="Revise: o que muda entre `/` e `//`? E o que as aspas fazem com um valor?",
 )
+
+rodape_fases(__file__)

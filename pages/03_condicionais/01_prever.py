@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
@@ -52,3 +52,5 @@ stb.single_choice(
     success="Exato! O primeiro `if` (`9 >= 5`) já é verdadeiro, então ele entra no Recuperação e os outros nem são testados. Ordem importa!",
     error="O Python para no PRIMEIRO teste verdadeiro. `9 >= 5` já é verdadeiro — ele nem chega no `elif`.",
 )
+
+rodape_fases(__file__)

@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 
@@ -34,3 +34,5 @@ stb.multiple_choice(
     success="Perfeito — soma ÷ quantidade. Ordenar é irrelevante para a média.",
     error="Média = soma de tudo dividida pela quantidade. Ordenar muda algo?",
 )
+
+rodape_fases(__file__)

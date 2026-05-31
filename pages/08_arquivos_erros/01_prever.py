@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
@@ -51,3 +51,5 @@ stb.single_choice(
     success='Exato! O `"x"` é pulado pelo `except`; sobram 7 e 9, somando 16.0.',
     error='O `except` ignora o `"x"`. Sobram 7 + 9 = 16.0 — sem o programa quebrar.',
 )
+
+rodape_fases(__file__)

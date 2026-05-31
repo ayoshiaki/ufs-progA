@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Agora o *porquê*. Pense na diferença entre `print` e `return`.")
@@ -35,3 +35,5 @@ stb.multiple_choice(
     success="Mandou bem! Vários parâmetros, `None` sem `return`, reuso à vontade — e o corpo só roda quando a função é CHAMADA.",
     error="Revise: quando o corpo de uma função executa — ao definir ou ao chamar? E o que ela devolve sem `return`?",
 )
+
+rodape_fases(__file__)

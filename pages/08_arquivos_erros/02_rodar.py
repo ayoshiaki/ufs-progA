@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -39,3 +39,5 @@ problema diferente (por exemplo, um nome de variável errado) **não** seria
 silenciado — e isso é bom: você só ignora o erro que sabe tratar.
 """
 )
+
+rodape_fases(__file__)

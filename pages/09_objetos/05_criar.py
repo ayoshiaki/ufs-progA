@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_expressoes_sandbox
-from utils.navegacao import cabecalho, rodape_tema
+from utils.navegacao import cabecalho, rodape_tema, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -48,4 +48,5 @@ exercicio_expressoes_sandbox(
     nome_tarefa="tema9_conta_bancaria",
 )
 
+rodape_fases(__file__)
 rodape_tema(__file__)

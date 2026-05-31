@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -35,3 +35,5 @@ exercicio_saida(
     ),
     dica="Troque o `7` da primeira condição por `6`.",
 )
+
+rodape_fases(__file__)

@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Agora o *porquê*. Pense em como o Python percorre um `if/elif/else`.")
@@ -35,3 +35,5 @@ stb.multiple_choice(
     success="Mandou bem! Comparações dão booleanos, a ordem importa, o `else` é opcional e cobre o resto.",
     error="Revise: o `else` é obrigatório? E o que uma comparação como `media >= 7` devolve?",
 )
+
+rodape_fases(__file__)

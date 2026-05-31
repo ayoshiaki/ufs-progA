@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Agora o *porquê*. Pense no papel do `self` e dos atributos.")
@@ -35,3 +35,5 @@ stb.multiple_choice(
     success="Mandou bem! `__init__` prepara cada objeto, e cada instância guarda os seus próprios atributos — eles não são compartilhados.",
     error="Revise: dois objetos da mesma classe dividem os atributos ou cada um tem o seu? (Cada um tem o seu.)",
 )
+
+rodape_fases(__file__)

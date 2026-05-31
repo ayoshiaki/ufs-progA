@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 import streamlit_book as stb
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Leia o código **sem rodar** e responda. Depois confirmamos na próxima fase.")
@@ -46,3 +46,5 @@ stb.single_choice(
     success='Exato! `print("nome")` imprime o texto literal entre aspas, não o valor da variável. Já `print(idade)` imprime o valor 20.',
     error='Atenção às aspas: `"nome"` é um texto literal; `idade` (sem aspas) é a variável.',
 )
+
+rodape_fases(__file__)

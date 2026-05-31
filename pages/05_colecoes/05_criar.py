@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.sandbox_pyodide import exercicio_funcao_sandbox
-from utils.navegacao import cabecalho, rodape_tema
+from utils.navegacao import cabecalho, rodape_tema, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -38,4 +38,5 @@ exercicio_funcao_sandbox(
     nome_tarefa="tema5_buscar_telefone",
 )
 
+rodape_fases(__file__)
 rodape_tema(__file__)

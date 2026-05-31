@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
 from utils.componentes import exercicio_saida
-from utils.navegacao import cabecalho
+from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown(
@@ -30,3 +30,5 @@ baixo**. A variável `total` só existe *depois* da linha que a cria. Trocar a
 ordem das linhas quebraria o programa — guarde essa ideia para a fase Investigar.
 """
 )
+
+rodape_fases(__file__)

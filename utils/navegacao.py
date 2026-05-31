@@ -76,10 +76,44 @@ def cabecalho_intro(arquivo):
     st.subheader("Fase 0 — Aquecimento")
 
 
-def rodape_tema(arquivo):
-    """Fechamento da fase 5 (Criar): celebra e aponta o próximo passo real."""
-    t = _tema(arquivo)
+def _rotulo_fase(num):
+    """Rótulo curto de uma fase para os botões de navegação."""
+    if num == 0:
+        return "Aquecimento"
+    emoji, nome = FASES[num]
+    return f"{emoji} {nome}"
+
+
+def rodape_fases(arquivo):
+    """Botões de navegação entre fases no rodapé de cada página.
+
+    Reaproveita o mesmo mecanismo dos botões ‹ › do topo (streamlit_book muda
+    `st.session_state.page_number`), então as duas navegações ficam em sincronia.
+    """
+    from streamlit_book.file_reader import on_previous_click, on_next_click
+
+    t, f = _tema(arquivo), _fase(arquivo)
     st.divider()
+    esquerda, direita = st.columns(2)
+    if f > 0:
+        esquerda.button(
+            f"‹ {_rotulo_fase(f - 1)}", key=f"nav_prev_{t}_{f}",
+            on_click=on_previous_click, use_container_width=True,
+        )
+    if f < len(FASES):
+        direita.button(
+            f"{_rotulo_fase(f + 1)} ›", key=f"nav_next_{t}_{f}",
+            on_click=on_next_click, use_container_width=True,
+        )
+
+
+def rodape_tema(arquivo):
+    """Fechamento da fase 5 (Criar): celebra e aponta o próximo passo real.
+
+    Vem logo após `rodape_fases`, que já desenha o divisor; por isso não desenha
+    outro aqui.
+    """
+    t = _tema(arquivo)
     if t < TOTAL_TEMAS:
         st.success(
             f"✅ **Tema {t} de {TOTAL_TEMAS} concluído!** Depois de baixar o "
