@@ -9,6 +9,14 @@ import streamlit as st
 import streamlit_book as stb
 from pathlib import Path
 
+# Workaround para um bug do streamlit_book 0.7.6: em chapter_config.py a função
+# é definida como `get_query()` mas chamada como `get_query_params()`, causando
+# `NameError` com versões recentes do Streamlit. Criamos o alias que falta.
+# A guarda `hasattr` torna o patch inócuo quando o upstream corrigir o nome.
+import streamlit_book.chapter_config as _chapter_config
+if not hasattr(_chapter_config, "get_query_params"):
+    _chapter_config.get_query_params = _chapter_config.get_query
+
 st.set_page_config(
     page_title="Programação A",
     page_icon="🐍",
