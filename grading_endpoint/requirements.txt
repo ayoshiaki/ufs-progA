@@ -1,0 +1,5 @@
+# Para Hugging Face Spaces / Render / local (FastAPI):
+fastapi
+uvicorn[standard]
+# Para PythonAnywhere: Flask já vem instalado (sem requirements).
+# Para Google Cloud Function: troque por  functions-framework==3.*

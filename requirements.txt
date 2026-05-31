@@ -1,0 +1,4 @@
+streamlit>=1.30
+streamlit_book>=0.7.0
+# Necessário apenas se você usar a sandbox Judge0 (utils/sandbox_judge0.py):
+requests>=2.31
