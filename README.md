@@ -84,6 +84,11 @@ substitua por uma sandbox real (Pyodide no navegador, Judge0, subprocess com
 limites de tempo/memória). Os builtins estão restritos, mas isso *não* é uma
 sandbox segura.
 
+> Para suportar OO (Temas 9–10), a whitelist libera `__build_class__`, `object`,
+> `super` etc. — necessário para definir classes, mas `object` é um vetor
+> clássico de escape. Reforça a recomendação: deploy aberto → porte as fases
+> Rodar/Modificar para Pyodide (as fases Criar de OO já usam Pyodide).
+
 ## Estrutura
 
 ```

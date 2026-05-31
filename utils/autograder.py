@@ -24,6 +24,11 @@ _SAFE_BUILTINS = {
     "repr", "reversed", "round", "set", "slice", "sorted", "str", "sum",
     "tuple", "type", "zip", "True", "False", "None", "Exception", "ValueError",
     "TypeError", "ZeroDivisionError", "IndexError", "KeyError",
+    # Orientação a objetos (Temas 9 e 10): `__build_class__` é o que o CPython
+    # invoca ao executar um `class ...`; sem ele, definir classe dá
+    # "NameError: __build_class__ not found". Os demais liberam OO idiomático.
+    "__build_class__", "object", "super", "property", "staticmethod",
+    "classmethod", "hasattr", "getattr", "setattr",
 }
 
 
@@ -31,7 +36,9 @@ def _build_namespace():
     import builtins
     safe = {name: getattr(builtins, name) for name in _SAFE_BUILTINS
             if hasattr(builtins, name)}
-    return {"__builtins__": safe}
+    # `__name__` precisa existir nos globals: o corpo de toda classe roda
+    # `__module__ = __name__`. Sem isso, dá "NameError: name '__name__' ...".
+    return {"__builtins__": safe, "__name__": "__main__"}
 
 
 def run_code(student_code, stdin_text=""):
