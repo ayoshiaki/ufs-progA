@@ -53,6 +53,15 @@ a ordem, use parênteses: `(2 + 3) * 4` é `20`. É isso que faz a fórmula
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python (em português):** tipos numéricos, "
+    "operadores aritméticos e strings estão no tutorial "
+    "[*Uma introdução informal ao Python*]"
+    "(https://docs.python.org/pt-br/3/tutorial/introduction.html). "
+    "Para a referência completa dos tipos, veja "
+    "[*Tipos embutidos*](https://docs.python.org/pt-br/3/library/stdtypes.html)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

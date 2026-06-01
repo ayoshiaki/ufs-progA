@@ -34,11 +34,21 @@ computacional**:
    sem ambiguidade. *Na loja:* pergunte o preço → pergunte a quantidade →
    multiplique → mostre o total.
 
+O termo **pensamento computacional** foi popularizado por **Jeannette Wing**, que
+o descreveu como uma habilidade fundamental para *todos* — não apenas para quem
+programa —, tão básica quanto ler, escrever e fazer contas (Wing, 2006).
+
 > 💭 **Pense antes de avançar:** se você tivesse que explicar esse cálculo para
 > uma pessoa que segue ordens ao pé da letra, quais passos exatos daria, e em
 > que ordem? Isso é *pensamento computacional*: quebrar o problema em passos
 > precisos e sem ambiguidade (um **algoritmo**).
 """
+)
+
+st.caption(
+    "**Referência:** WING, J. M. *Computational Thinking.* Communications of the "
+    "ACM, v. 49, n. 3, p. 33–35, 2006. "
+    "DOI: [10.1145/1118178.1118215](https://doi.org/10.1145/1118178.1118215)."
 )
 
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
