@@ -56,7 +56,7 @@ Cabeçalho-padrão idêntico aos demais temas (`sys.path` para a raiz, imports d
 | 2 Rodar | `02_rodar.py` | Confirmar a previsão rodando (`exercicio_saida`). Observação: o parâmetro `f` *guarda uma função*; chamar `f(x)` executa a função recebida. |
 | 3 Investigar | `03_investigar.py` | O *porquê*: por que passar a função em vez de copiar o laço? `stb.single_choice` + `stb.multiple_choice` sobre função-como-valor e `lambda`. |
 | 4 Modificar | `04_modificar.py` | Dada `aplicar_a_todos(funcao, lista)` que usa uma operação fixa, trocar para usar o parâmetro `funcao` (ou um `lambda`). `exercicio_saida` com saída esperada determinística. |
-| 5 Criar | `05_criar.py` | Aluno escreve uma HOF própria — `aplicar(funcao, valor)` que devolve `funcao(valor)`. Testada via `exercicio_expressoes_sandbox`, casos como `_res = aplicar(lambda x: x + 1, 10)` → `11`. `nome_tarefa="tema11_aplicar"`. Fecha com `rodape_fases` + `rodape_tema`. |
+| 5 Criar | `05_criar.py` | Aluno escreve uma HOF própria — `aplicar_duas_vezes(funcao, valor)` que devolve `funcao(funcao(valor))`. Testada via `exercicio_expressoes_sandbox`, casos como `_res = aplicar_duas_vezes(lambda x: x + 1, 10)` → `12` e `_res = aplicar_duas_vezes(lambda x: x * 2, 3)` → `12`. `nome_tarefa="tema11_aplicar_duas_vezes"`. Fecha com `rodape_fases` + `rodape_tema`. |
 
 Tom e formato seguem o Tema 7 (Funções): markdown em português, exemplos
 curtos, feedbacks `success`/`error` explicativos.
@@ -94,7 +94,7 @@ curtos, feedbacks `success`/`error` explicativos.
 1. O Tema 11 aparece no menu lateral, com ícone, depois do Tema 10.
 2. As 6 fases navegam corretamente com os botões ‹ › e com os botões de rodapé.
 3. A fase Criar roda na sandbox, passa nos casos com `lambda` e libera o
-   comprovante `tema11_aplicar`.
+   comprovante `tema11_aplicar_duas_vezes`.
 4. `rodape_tema` na fase Criar do Tema 11 mostra a mensagem final de conclusão
    do curso (ramo `t == TOTAL_TEMAS`) já com "11 temas".
 5. Nenhum texto remanescente diz "10 temas" onde agora são 11.
