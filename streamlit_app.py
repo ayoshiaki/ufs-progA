@@ -17,6 +17,12 @@ import streamlit_book.chapter_config as _chapter_config
 if not hasattr(_chapter_config, "get_query_params"):
     _chapter_config.get_query_params = _chapter_config.get_query
 
+# Conserta o save_answer do streamlit_book: a versão original não escapa as aspas
+# dentro dos campos e corrompe tmp/answers.csv quando a pergunta/resposta contém
+# `"` (ex.: print("Total:", x)), quebrando a Admin View. Ver utils/sb_answers_fix.py.
+from utils.sb_answers_fix import instalar as _instalar_gravacao_segura
+_instalar_gravacao_segura(st)
+
 from utils.progresso import salvar_progresso
 
 # Suprime o aviso de "save answers" embutido no streamlit_book (caixa amarela em
