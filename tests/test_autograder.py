@@ -82,6 +82,25 @@ def test_regressao_nao_oo():
     _ok("código não-OO continua funcionando (regressão)", ok1 and ok2)
 
 
+def test_import_functools_reduce():
+    # Tema 12 (Fluxo de dados): o Rodar usa `from functools import reduce`.
+    # Antes, o sandbox sem __import__ quebrava com "ImportError: __import__ not found".
+    codigo = ("from functools import reduce\n"
+              "numeros = [1, 2, 3, 4, 5]\n"
+              "pares = filter(lambda n: n % 2 == 0, numeros)\n"
+              "dobrados = map(lambda n: n * 2, pares)\n"
+              "total = reduce(lambda a, b: a + b, dobrados)\n"
+              "print(total)")
+    ok, _saida, erro = check_output(codigo, "12")
+    _ok("from functools import reduce funciona no autograder", ok and erro is None)
+
+
+def test_import_proibido_bloqueado():
+    # A allowlist é deny-by-default: módulos perigosos continuam bloqueados.
+    ok, _saida, erro = check_output("import os\nprint(os.getcwd())", "qualquer")
+    _ok("import os continua bloqueado", (not ok) and erro is not None)
+
+
 def test_negativo_classe_errada_nao_passa():
     # depositar quebrado: NÃO pode passar por engano
     codigo = ("class C:\n"

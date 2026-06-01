@@ -31,11 +31,34 @@ _SAFE_BUILTINS = {
     "classmethod", "hasattr", "getattr", "setattr",
 }
 
+# Módulos puros e seguros que o aluno PODE importar (ex.: `functools.reduce` no
+# Tema 12, Fluxo de dados). Tudo o que não está aqui — os, sys, subprocess, ... —
+# continua bloqueado: a política é negar por padrão.
+_ALLOWED_MODULES = {
+    "functools", "math", "itertools", "statistics",
+    "random", "string", "collections", "decimal", "fractions",
+}
+
+
+def _safe_import(name, globals=None, locals=None, fromlist=(), level=0):
+    """`__import__` restrito: só importa absolutamente módulos da allowlist."""
+    import builtins
+    raiz = name.split(".")[0]
+    if level == 0 and raiz in _ALLOWED_MODULES:
+        return builtins.__import__(name, globals, locals, fromlist, level)
+    raise ImportError(
+        f"import de '{name}' não é permitido no autograder "
+        f"(liberados: {', '.join(sorted(_ALLOWED_MODULES))})"
+    )
+
 
 def _build_namespace():
     import builtins
     safe = {name: getattr(builtins, name) for name in _SAFE_BUILTINS
             if hasattr(builtins, name)}
+    # Permite `import` apenas dos módulos da allowlist (`_ALLOWED_MODULES`).
+    # Sem isto, qualquer `import` falha com "ImportError: __import__ not found".
+    safe["__import__"] = _safe_import
     # `__name__` precisa existir nos globals: o corpo de toda classe roda
     # `__module__ = __name__`. Sem isso, dá "NameError: name '__name__' ...".
     return {"__builtins__": safe, "__name__": "__main__"}
