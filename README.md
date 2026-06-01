@@ -88,16 +88,16 @@ O comprovante é um `.txt` baixável. Algumas formas de receber:
 
 ## ⚠️ Segurança do autograder
 
-`utils/autograder.py` usa `exec` para rodar o código do aluno. Para uso local ou
-com turma confiável, tudo bem. **Se for publicar o app aberto na internet**,
-substitua por uma sandbox real (Pyodide no navegador, Judge0, subprocess com
-limites de tempo/memória). Os builtins estão restritos, mas isso *não* é uma
-sandbox segura.
+**Todas as fases que executam código do aluno (Rodar, Modificar e Criar) rodam no
+navegador, via Pyodide (CPython em WebAssembly).** Nada de código de aluno roda no
+servidor — bom para publicar o app aberto e para escalar (um laço infinito trava
+só a aba do próprio aluno, não o servidor).
 
-> Para suportar OO (Temas 12–13), a whitelist libera `__build_class__`, `object`,
-> `super` etc. — necessário para definir classes, mas `object` é um vetor
-> clássico de escape. Reforça a recomendação: deploy aberto → porte as fases
-> Rodar/Modificar para Pyodide (as fases Criar de OO já usam Pyodide).
+`utils/autograder.py` (server-side, com `exec` e builtins restritos) **não está
+mais no caminho de execução** das páginas; permanece apenas para os testes
+automatizados e como utilitário opcional. Se for reusá-lo para execução real,
+lembre que os builtins restritos **não** são uma sandbox segura — prefira o
+Pyodide.
 
 ## Estrutura
 
