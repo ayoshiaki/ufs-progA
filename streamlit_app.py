@@ -40,6 +40,7 @@ stb.set_book_config(
         "8 · Arquivos e erros",
         "9 · Introdução a objetos",
         "10 · OO: herança e polimorfismo",
+        "11 · Funções de ordem superior",
     ],
     paths=[
         current / "00_boas_vindas.py",
@@ -53,10 +54,12 @@ stb.set_book_config(
         current / "08_arquivos_erros",
         current / "09_objetos",
         current / "10_heranca",
+        current / "11_hof",
     ],
     icons=[
         "house", "lightbulb", "calculator", "signpost-split", "arrow-repeat",
         "list-ul", "fonts", "box", "file-earmark", "diagram-3", "diagram-3-fill",
+        "arrow-right-circle",
     ],
     save_answers=True,
     # Esconde a legenda "Page X of Y. File: <caminho>" (vazava o caminho do
