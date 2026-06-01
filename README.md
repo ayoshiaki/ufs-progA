@@ -11,7 +11,7 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-Abre no navegador. O menu lateral lista os 10 temas; dentro de cada tema, os
+Abre no navegador. O menu lateral lista os 11 temas; dentro de cada tema, os
 botões **‹ ›** no topo navegam entre as fases.
 
 ## O método: 5 fases por tema (PRIMM)
@@ -43,7 +43,7 @@ baixável (com nome, matrícula, carimbo de tempo e hash).
 9. **Introdução a objetos** — classes, atributos, métodos ✅ *completo*
 10. **OO: herança e polimorfismo** ✅ *completo*
 
-Todos os 10 temas estão completos, cada um com as 5 fases PRIMM. As fases
+Todos os 11 temas estão completos, cada um com as 5 fases PRIMM. As fases
 "Criar" (entrega) rodam na sandbox Pyodide (WebAssembly, client-side).
 
 > **Nota sobre o Tema 8:** a tarefa de entrega é `media_notas(linhas)` —
