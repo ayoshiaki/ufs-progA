@@ -68,7 +68,8 @@ SOLUCOES = {
     ),
     "05_repeticao/05_criar.py": "_res = sum(notas) / len(notas) if notas else 0",
     "06_colecoes/05_criar.py": '_res = agenda.get(nome, "não encontrado")',
-    "07_strings/05_criar.py": (
+    "07_compreensoes/05_criar.py": "_res = [n * n for n in numeros if n % 2 == 0]",
+    "08_strings/05_criar.py": (
         "t = texto.lower().replace(' ', '')\n"
         "_res = t == t[::-1]"
     ),

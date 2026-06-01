@@ -25,13 +25,15 @@ TEMAS = {
     4: "Condicionais",
     5: "Repetição",
     6: "Listas, tuplas e dicionários",
-    7: "Strings",
-    8: "Funções",
-    9: "Recursão",
-    10: "Funções de ordem superior",
-    11: "Arquivos e erros",
-    12: "Introdução a objetos",
-    13: "OO: herança e polimorfismo",
+    7: "Compreensões",
+    8: "Strings",
+    9: "Funções",
+    10: "Recursão",
+    11: "Funções de ordem superior",
+    12: "Fluxo de dados: map, filter, reduce",
+    13: "Arquivos e erros",
+    14: "Introdução a objetos",
+    15: "OO: herança e polimorfismo",
 }
 
 # Fase -> (emoji, nome). Espelha o método PRIMM da página de boas-vindas.

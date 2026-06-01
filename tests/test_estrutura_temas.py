@@ -80,21 +80,53 @@ def test_temas_contiguos_de_1_a_n():
         temas == list(range(1, len(temas) + 1)))
 
 
-def test_hof_logo_apos_funcoes():
+def test_cadeia_de_funcoes():
     nomes = _nomes_em_navegacao()
-    funcoes = [n for n, nome in nomes.items() if nome == "Funções"]
-    hof = [n for n, nome in nomes.items() if nome == "Funções de ordem superior"]
-    _ok("tema 'Funções' existe", len(funcoes) == 1)
-    _ok("tema 'Funções de ordem superior' existe", len(hof) == 1)
-    # Decisão didática: HOF é a extensão natural de Funções e vem logo depois.
-    _ok("HOF vem imediatamente após Funções", hof[0] == funcoes[0] + 1)
+
+    def num(rotulo):
+        achados = [n for n, nome in nomes.items() if nome == rotulo]
+        _ok(f"tema '{rotulo}' existe (1x)", len(achados) == 1)
+        return achados[0]
+
+    # Decisão didática: o "cluster de funções" vem em sequência —
+    # Funções → Recursão → Funções de ordem superior.
+    funcoes = num("Funções")
+    recursao = num("Recursão")
+    hof = num("Funções de ordem superior")
+    _ok("Recursão vem imediatamente após Funções", recursao == funcoes + 1)
+    _ok("HOF vem imediatamente após Recursão", hof == recursao + 1)
+    _ok("pasta de Recursão existe", any(
+        p.name.endswith("_recursao") for p in _pastas_de_tema()))
     _ok("pasta de HOF existe", any(
         p.name.endswith("_hof") for p in _pastas_de_tema()))
+
+
+def test_temas_novos_no_lugar_certo():
+    nomes = _nomes_em_navegacao()
+
+    def num(rotulo):
+        achados = [n for n, nome in nomes.items() if nome == rotulo]
+        _ok(f"tema '{rotulo}' existe (1x)", len(achados) == 1)
+        return achados[0]
+
+    # Decisão didática: Compreensões logo após Coleções (não precisa de funções);
+    # map/filter/reduce logo após Funções de ordem superior (precisam de lambda).
+    colecoes = num("Listas, tuplas e dicionários")
+    compreensoes = num("Compreensões")
+    hof = num("Funções de ordem superior")
+    fluxo = num("Fluxo de dados: map, filter, reduce")
+    _ok("Compreensões vem imediatamente após Coleções", compreensoes == colecoes + 1)
+    _ok("Fluxo de dados vem imediatamente após HOF", fluxo == hof + 1)
+    _ok("pasta de Compreensões existe", any(
+        p.name.endswith("_compreensoes") for p in _pastas_de_tema()))
+    _ok("pasta de Fluxo de dados existe", any(
+        p.name.endswith("_fluxo_dados") for p in _pastas_de_tema()))
 
 
 if __name__ == "__main__":
     test_toda_pasta_de_tema_tem_as_6_fases()
     test_fontes_espelho_concordam()
     test_temas_contiguos_de_1_a_n()
-    test_hof_logo_apos_funcoes()
+    test_cadeia_de_funcoes()
+    test_temas_novos_no_lugar_certo()
     print("\n🎉 estrutura dos temas OK")
