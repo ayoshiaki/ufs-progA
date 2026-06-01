@@ -86,6 +86,23 @@ O comprovante é um `.txt` baixável. Algumas formas de receber:
 > `save_answers=True` (em `streamlit_app.py`) também registra as respostas dos
 > quizzes; veja a *Admin View* do `streamlit_book` para estatísticas.
 
+### Admin View e segredos
+
+A *Admin View* (estatísticas e download das respostas) abre acrescentando
+`?user=admin` à URL do app e digitando uma **senha**.
+
+⚠️ A senha vem de `st.secrets["ADMIN_PASSWORD"]`; **se não definida, o
+`streamlit_book` usa uma senha padrão pública**. Defina a sua antes de publicar:
+
+```bash
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+# edite ADMIN_PASSWORD (ex.: python -c "import secrets; print(secrets.token_urlsafe(18))")
+```
+
+`.streamlit/secrets.toml` **não é versionado** (está no `.gitignore`) — só o
+`.example` vai para o git. No **Streamlit Community Cloud**, defina os valores em
+*Settings → Secrets* (não suba o arquivo).
+
 ## ⚠️ Segurança do autograder
 
 **Todas as fases que executam código do aluno (Rodar, Modificar e Criar) rodam no
