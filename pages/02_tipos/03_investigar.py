@@ -30,10 +30,12 @@ stb.multiple_choice(
         "`9 / 5` resulta em `float` (1.8).": True,
         "`9 // 5` resulta em `int` (1).": True,
         '`"20"` (com aspas) é um texto, não um número.': True,
+        "`type(True)` é `bool` — um dos quatro tipos básicos.": True,
+        "`10 % 3` vale `1` (o resto da divisão).": True,
         "`int` e `float` são o mesmo tipo.": False,
     },
-    success="Mandou bem! `/` dá float, `//` dá int, e aspas transformam qualquer coisa em texto (`str`).",
-    error="Revise: o que muda entre `/` e `//`? E o que as aspas fazem com um valor?",
+    success="Mandou bem! `/` dá float, `//` dá int, aspas viram `str`, `True`/`False` são `bool`, e `%` dá o resto.",
+    error="Revise: `/` vs `//`; o que as aspas fazem; qual o tipo de `True`; e o que `%` calcula.",
 )
 
 rodape_fases(__file__)
