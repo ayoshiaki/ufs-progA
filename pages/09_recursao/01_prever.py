@@ -58,4 +58,29 @@ stb.single_choice(
     error="Cada chamada imprime `n` e chama `contagem(n-1)`: 3, 2, 1. Em `n == 0` o `return` para antes do print.",
 )
 
+st.divider()
+
+st.code(
+    '''def soma_lista(numeros):
+    if numeros == []:
+        return 0
+    return numeros[0] + soma_lista(numeros[1:])
+
+print(soma_lista([10, 20, 30]))''',
+    language="python",
+)
+
+stb.single_choice(
+    "O que este programa imprime?",
+    [
+        "60",
+        "30",
+        "10",
+        "0",
+    ],
+    0,
+    success="Isso! `10 + soma_lista([20, 30])` = `10 + 20 + soma_lista([30])` = `10 + 20 + 30 + soma_lista([])` (=0) = 60.",
+    error="A recursão soma o primeiro item com a soma do resto: `10 + 20 + 30 = 60`. A lista vazia é o caso base (0).",
+)
+
 rodape_fases(__file__)

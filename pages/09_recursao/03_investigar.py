@@ -36,4 +36,18 @@ stb.multiple_choice(
     error="Revise: qual o papel do caso base? E o caso recursivo aproxima ou afasta do caso base?",
 )
 
+st.divider()
+
+stb.multiple_choice(
+    "Sobre os aprofundamentos (estruturas, cauda, memoização):",
+    {
+        "Recursão é natural para estruturas aninhadas (listas de listas, dicionários).": True,
+        "Recursão de cauda é quando a chamada recursiva é a ÚLTIMA operação da função.": True,
+        "Memoização guarda resultados já calculados para não recalcular.": True,
+        "Em Python, recursão de cauda é otimizada e elimina o limite de profundidade.": False,
+    },
+    success="Mandou bem! Estruturas aninhadas pedem recursão; cauda = chamada como última operação; memoização evita recálculo. E cuidado: o Python NÃO otimiza recursão de cauda.",
+    error="Revise: o Python otimiza recursão de cauda? (Não.) O que a memoização faz? Onde a chamada de cauda aparece?",
+)
+
 rodape_fases(__file__)
