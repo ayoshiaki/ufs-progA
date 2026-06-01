@@ -15,7 +15,7 @@ A previsão da fase anterior estava certa?
 )
 
 exercicio_saida(
-    chave="t10_rodar",
+    chave="t11_rodar",
     enunciado="Faça este programa imprimir `16.0`.",
     esperado="16.0",
     modelo=(

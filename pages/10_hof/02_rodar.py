@@ -15,7 +15,7 @@ Agora confirme. Rode o programa que define `aplicar` e o chama passando a funç�
 )
 
 exercicio_saida(
-    chave="t9_rodar",
+    chave="t10_rodar",
     enunciado="Faça este programa imprimir `16`.",
     esperado="16",
     modelo=(

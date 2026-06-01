@@ -27,7 +27,7 @@ no servidor. Feche todos os testes para liberar o comprovante de entrega.
 )
 
 exercicio_funcao_sandbox(
-    chave="t10_criar",
+    chave="t11_criar",
     enunciado="Implemente a função `media_notas`:",
     func_name="media_notas",
     cases=[
@@ -49,7 +49,7 @@ exercicio_funcao_sandbox(
         "    return soma / quantidade"
     ),
     dica="Dentro do `for`, use `try: nota = float(linha)` e, se der certo, some em `soma` e some 1 em `quantidade`. No `except ValueError: pass`.",
-    nome_tarefa="tema10_media_notas",
+    nome_tarefa="tema11_media_notas",
 )
 
 rodape_fases(__file__)

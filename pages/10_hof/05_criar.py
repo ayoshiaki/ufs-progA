@@ -22,7 +22,7 @@ no servidor. Feche todos os testes para liberar o comprovante de entrega.
 )
 
 exercicio_expressoes_sandbox(
-    chave="t9_criar",
+    chave="t10_criar",
     enunciado="Implemente a função `aplicar_duas_vezes`:",
     cases=[
         ("_res = aplicar_duas_vezes(lambda x: x + 1, 10)", 12),
@@ -36,7 +36,7 @@ exercicio_expressoes_sandbox(
         "    return valor"
     ),
     dica="Aplique uma vez: `funcao(valor)`. Aplique de novo no resultado: `funcao(funcao(valor))`. Use `return`.",
-    nome_tarefa="tema9_aplicar_duas_vezes",
+    nome_tarefa="tema10_aplicar_duas_vezes",
 )
 
 rodape_fases(__file__)
