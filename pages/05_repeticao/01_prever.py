@@ -40,4 +40,28 @@ stb.single_choice(
     error="`range(n)` vai de 0 até n-1. Quantos números são, e quais?",
 )
 
+st.divider()
+st.markdown("Agora um laço **`while`** — ele repete enquanto a condição for verdadeira:")
+
+st.code(
+    '''n = 5
+while n > 0:
+    print(n)
+    n = n - 2''',
+    language="python",
+)
+
+stb.single_choice(
+    "O que aparece (uma por linha)?",
+    [
+        "5 3 1",
+        "5 4 3 2 1",
+        "5 3 1 -1",
+        "laço infinito",
+    ],
+    0,
+    success="Isso! `n` vale 5, 3, 1; depois vira -1, e `-1 > 0` é falso — o laço para.",
+    error="Acompanhe `n`: 5 (imprime), 3 (imprime), 1 (imprime), depois -1 → `-1 > 0` é falso, para.",
+)
+
 rodape_fases(__file__)

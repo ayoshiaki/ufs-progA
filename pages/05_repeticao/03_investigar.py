@@ -35,4 +35,35 @@ stb.multiple_choice(
     error="Média = soma de tudo dividida pela quantidade. Ordenar muda algo?",
 )
 
+st.divider()
+st.markdown("Agora **`for` vs `while`** — escolher o laço certo para cada situação.")
+
+stb.single_choice(
+    "Em qual situação o `while` é a melhor escolha?",
+    [
+        "Percorrer cada nome de uma lista já pronta.",
+        "Repetir até o usuário digitar a senha certa — sem saber quantas tentativas serão.",
+        "Imprimir os números de 0 a 9.",
+        "Somar todos os itens de uma lista de preços.",
+    ],
+    1,
+    success="Isso! Quando você não sabe quantas voltas serão (repete ATÉ algo mudar), o `while` brilha.",
+    error="`for` serve quando você sabe o que percorrer ou quantas vezes. O `while` é para repetir ATÉ uma condição mudar (nº de voltas desconhecido).",
+)
+
+st.divider()
+
+stb.single_choice(
+    "O que costuma causar um **laço infinito** num `while`?",
+    [
+        "Esquecer de atualizar a variável da condição, que então nunca fica falsa.",
+        "Usar `print` dentro do laço.",
+        "Inicializar a variável antes do laço.",
+        "Comparar com `>` em vez de `>=`.",
+    ],
+    0,
+    success="Exato! Sem o passo que atualiza a variável, a condição fica sempre verdadeira e o laço nunca termina.",
+    error="O laço infinito vem de a condição nunca virar falsa — normalmente porque a variável testada não é atualizada dentro do laço.",
+)
+
 rodape_fases(__file__)
