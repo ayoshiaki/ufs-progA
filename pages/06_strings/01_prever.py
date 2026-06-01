@@ -65,4 +65,25 @@ stb.single_choice(
     error="Numa f-string, o que está entre chaves é avaliado: `{nome}` → `Ana`, e `{3 + 2}` → `5`.",
 )
 
+st.divider()
+
+st.code(
+    '''media = 8.5
+print(f"Media: {media:.2f}")''',
+    language="python",
+)
+
+stb.single_choice(
+    "O que aparece na tela?",
+    [
+        "Media: 8.50",
+        "Media: 8.5",
+        "Media: 8",
+        "Media: {media:.2f}",
+    ],
+    0,
+    success="Isso! O molde `:.2f` força **2 casas decimais**, então `8.5` aparece como `8.50`.",
+    error="O `:.2f` fixa 2 casas decimais: `8.5` vira `8.50` (completa com zero).",
+)
+
 rodape_fases(__file__)

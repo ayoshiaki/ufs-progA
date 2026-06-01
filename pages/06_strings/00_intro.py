@@ -35,6 +35,24 @@ Dentro das chaves cabe qualquer **expressão**, não só um nome de variável:
 print(f"O dobro de {idade} é {idade * 2}")   # O dobro de 20 é 40
 ```
 
+**Formatando o valor.** Depois da expressão, um `:` abre um *molde* que ajusta
+como o valor aparece — ótimo para dinheiro, médias e porcentagens:
+
+```python
+preco = 7.5
+print(f"R$ {preco:.2f}")     # R$ 7.50      -> sempre 2 casas decimais
+print(f"{1000000:,}")        # 1,000,000    -> separador de milhar
+print(f"{0.25:.0%}")         # 25%          -> vira porcentagem
+```
+
+Dá ainda para reservar uma **largura** e **alinhar** — útil para montar colunas:
+
+```python
+print(f"{'Ana':<8}|")        # 'Ana     |'  -> à esquerda, largura 8
+print(f"{42:>5}")            # '   42'       -> à direita, largura 5
+print(f"{7:03d}")            # '007'         -> preenche com zeros
+```
+
 > 💭 **Pense antes de avançar:** "Arara" começa com A maiúsculo e "arara"
 > com minúsculo. Para o computador, esses dois textos são *iguais*? Se não,
 > como fazer a comparação ignorar maiúsculas/minúsculas?

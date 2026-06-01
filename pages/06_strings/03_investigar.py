@@ -31,9 +31,10 @@ stb.multiple_choice(
         "`.lower()` ajuda a comparar ignorando maiúsculas/minúsculas.": True,
         '`"a e a".replace(" ", "")` remove os espaços, virando `"aea"`.': True,
         'Numa f-string, `f"{2 + 3}"` vira `"5"` (a expressão é calculada).': True,
+        '`f"{3.14159:.2f}"` mostra `3.14` (o `:.2f` arredonda para 2 casas).': True,
         "Strings podem ter um caractere trocado com `texto[0] = \"X\"`.": False,
     },
-    success="Mandou bem! Fatiar, `.lower()`, `.replace()` e f-strings criam textos novos — e você NÃO pode alterar uma letra no lugar (string é imutável).",
+    success="Mandou bem! Fatiar, `.lower()`, `.replace()` e f-strings (com molde `:.2f`) criam textos novos — e você NÃO pode alterar uma letra no lugar (string é imutável).",
     error="Revise: dá para fazer `texto[0] = \"X\"`? (Não — string é imutável.) E o que aparece dentro de `{ }` numa f-string é avaliado.",
 )
 
