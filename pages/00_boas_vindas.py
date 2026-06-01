@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 import streamlit as st
-import streamlit_book as stb
+from utils import quiz as stb  # embaralha as alternativas dos quizzes
 from utils.navegacao import mapa_curso, legenda_fases
 
 st.title("🐍 Programação A")
