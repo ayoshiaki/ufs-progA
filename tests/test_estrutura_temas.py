@@ -113,12 +113,16 @@ def test_temas_novos_no_lugar_certo():
     # map/filter/reduce logo após Funções de ordem superior (precisam de lambda).
     colecoes = num("Listas, tuplas e dicionários")
     compreensoes = num("Compreensões")
+    matrizes = num("Matrizes")
     hof = num("Funções de ordem superior")
     fluxo = num("Fluxo de dados: map, filter, reduce")
     _ok("Compreensões vem imediatamente após Coleções", compreensoes == colecoes + 1)
+    _ok("Matrizes vem imediatamente após Compreensões", matrizes == compreensoes + 1)
     _ok("Fluxo de dados vem imediatamente após HOF", fluxo == hof + 1)
     _ok("pasta de Compreensões existe", any(
         p.name.endswith("_compreensoes") for p in _pastas_de_tema()))
+    _ok("pasta de Matrizes existe", any(
+        p.name.endswith("_matrizes") for p in _pastas_de_tema()))
     _ok("pasta de Fluxo de dados existe", any(
         p.name.endswith("_fluxo_dados") for p in _pastas_de_tema()))
 
