@@ -19,6 +19,21 @@ computação que vamos destrinchar nas próximas fases:
 - **Processamento** — como ele calcula (variáveis e contas)
 - **Saída** — como ele devolve o resultado (`print`)
 
+Essas três ideias são a estrutura *deste* programa. Por trás delas está um jeito
+geral de atacar **qualquer** problema — os **4 pilares do pensamento
+computacional**:
+
+1. **Decomposição** — quebrar um problema grande em partes menores e tratáveis.
+   *Na loja:* "receber o preço", "receber a quantidade", "calcular" e "mostrar".
+2. **Reconhecimento de padrões** — perceber semelhanças e repetições.
+   *Na loja:* "preço × quantidade" é o mesmo cálculo para qualquer produto.
+3. **Abstração** — focar no essencial e ignorar o que não importa agora.
+   *Na loja:* a cor ou a marca do produto não entram na conta — só preço e
+   quantidade.
+4. **Algoritmos** — descrever a solução como uma sequência de passos precisos e
+   sem ambiguidade. *Na loja:* pergunte o preço → pergunte a quantidade →
+   multiplique → mostre o total.
+
 > 💭 **Pense antes de avançar:** se você tivesse que explicar esse cálculo para
 > uma pessoa que segue ordens ao pé da letra, quais passos exatos daria, e em
 > que ordem? Isso é *pensamento computacional*: quebrar o problema em passos

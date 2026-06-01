@@ -46,4 +46,25 @@ stb.single_choice(
     error="Lembre: `/` devolve float (3.5); `//` arredonda para baixo e devolve inteiro (3).",
 )
 
+st.divider()
+
+st.code(
+    '''print(2 + 3 * 4)
+print(10 % 3)''',
+    language="python",
+)
+
+stb.single_choice(
+    "O que aparece na tela?",
+    [
+        "14\\n1",
+        "20\\n1",
+        "14\\n0",
+        "20\\n0",
+    ],
+    0,
+    success="Isso! `*` vem antes de `+`, então `2 + 3*4 = 14`. E `10 % 3` é o **resto** da divisão de 10 por 3: `1`.",
+    error="Precedência: `3*4` primeiro, depois `2 + 12 = 14`. E `%` dá o resto: `10 % 3 = 1`.",
+)
+
 rodape_fases(__file__)

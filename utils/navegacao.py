@@ -21,14 +21,16 @@ import streamlit as st
 TEMAS = {
     1: "Pensamento computacional",
     2: "Tipos e expressões",
-    3: "Condicionais",
-    4: "Repetição",
-    5: "Listas, tuplas e dicionários",
-    6: "Strings",
-    7: "Funções",
-    8: "Arquivos e erros",
-    9: "Introdução a objetos",
-    10: "OO: herança e polimorfismo",
+    3: "Expressões booleanas",
+    4: "Condicionais",
+    5: "Repetição",
+    6: "Listas, tuplas e dicionários",
+    7: "Strings",
+    8: "Funções",
+    9: "Funções de ordem superior",
+    10: "Arquivos e erros",
+    11: "Introdução a objetos",
+    12: "OO: herança e polimorfismo",
 }
 
 # Fase -> (emoji, nome). Espelha o método PRIMM da página de boas-vindas.
@@ -122,7 +124,7 @@ def rodape_tema(arquivo):
         )
     else:
         st.success(
-            "🎉 **Você completou os 10 temas de Programação A!** "
+            f"🎉 **Você completou os {TOTAL_TEMAS} temas de Programação A!** "
             "Do pensamento computacional à orientação a objetos — parabéns."
         )
 
@@ -137,10 +139,11 @@ def legenda_fases():
 
 
 def mapa_curso():
-    """Grade 2×5 com os 10 temas, para a página de boas-vindas."""
+    """Grade com todos os temas (faixas de 5), para a página de boas-vindas."""
     numeros = list(TEMAS)
-    for faixa in (numeros[:5], numeros[5:]):
-        colunas = st.columns(5)
+    for inicio in range(0, len(numeros), 5):
+        faixa = numeros[inicio:inicio + 5]
+        colunas = st.columns(len(faixa))
         for coluna, t in zip(colunas, faixa):
             coluna.markdown(f"**{t}**")
             coluna.caption(TEMAS[t])

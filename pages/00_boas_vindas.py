@@ -12,10 +12,10 @@ st.caption("Do pensamento computacional à orientação a objetos — um problem
 st.markdown(
     """
 Bem-vindo! Este curso é feito de **problemas com dificuldade crescente**.
-São **10 temas**, e em cada um você não vai só assistir — vai **prever, rodar,
+São **12 temas**, e em cada um você não vai só assistir — vai **prever, rodar,
 investigar, modificar e criar** código.
 
-### Os 10 temas do curso
+### Os 12 temas do curso
 """
 )
 
@@ -23,7 +23,7 @@ mapa_curso()
 
 st.markdown(
     """
-Cada item do **menu lateral** é um desses 10 temas. Dentro dele, você avança
+Cada item do **menu lateral** é um desses 12 temas. Dentro dele, você avança
 pelas mesmas **5 fases** com os botões **‹ ›** no topo.
 
 ### As 5 fases de cada tema (PRIMM)
