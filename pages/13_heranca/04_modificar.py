@@ -21,7 +21,7 @@ Para um círculo de raio 2, o programa deve imprimir (área ≈ 12.57):
 )
 
 exercicio_saida(
-    chave="t12_modificar",
+    chave="t13_modificar",
     enunciado="Crie a classe `Circulo(Forma)` com seu próprio `area()`.",
     esperado="12.57",
     modelo=(

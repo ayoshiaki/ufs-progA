@@ -21,7 +21,7 @@ Para `["7", "x", "9"]` (duas notas válidas), o programa deve imprimir:
 )
 
 exercicio_saida(
-    chave="t10_modificar",
+    chave="t11_modificar",
     enunciado="Calcule a média das notas válidas.",
     esperado="8.0",
     modelo=(

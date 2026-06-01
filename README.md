@@ -11,7 +11,7 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-Abre no navegador. O menu lateral lista os 12 temas; dentro de cada tema, os
+Abre no navegador. O menu lateral lista os 13 temas; dentro de cada tema, os
 botões **‹ ›** no topo navegam entre as fases.
 
 ## O método: 5 fases por tema (PRIMM)
@@ -40,15 +40,16 @@ baixável (com nome, matrícula, carimbo de tempo e hash).
 6. **Listas, tuplas e dicionários** ✅ *completo*
 7. **Strings** — fatiamento, métodos, f-strings ✅ *completo*
 8. **Funções** ✅ *completo*
-9. **Funções de ordem superior** — função como argumento, `lambda` ✅ *completo*
-10. **Arquivos e tratamento de erros** ✅ *completo*
-11. **Introdução a objetos** — classes, atributos, métodos ✅ *completo*
-12. **OO: herança e polimorfismo** ✅ *completo*
+9. **Recursão** — caso base, caso recursivo (fatorial, soma) ✅ *completo*
+10. **Funções de ordem superior** — função como argumento, `lambda` ✅ *completo*
+11. **Arquivos e tratamento de erros** ✅ *completo*
+12. **Introdução a objetos** — classes, atributos, métodos ✅ *completo*
+13. **OO: herança e polimorfismo** ✅ *completo*
 
-Todos os 12 temas estão completos, cada um com as 5 fases PRIMM. As fases
+Todos os 13 temas estão completos, cada um com as 5 fases PRIMM. As fases
 "Criar" (entrega) rodam na sandbox Pyodide (WebAssembly, client-side).
 
-> **Nota sobre o Tema 10 (Arquivos e erros):** a tarefa de entrega é
+> **Nota sobre o Tema 11 (Arquivos e erros):** a tarefa de entrega é
 > `media_notas(linhas)` — recebe a lista de linhas já lidas (não um caminho de
 > arquivo), porque a sandbox do navegador não tem acesso ao sistema de arquivos
 > do servidor. As fases 0–4 ainda ensinam `with open(...)` e `try/except`.
@@ -93,7 +94,7 @@ substitua por uma sandbox real (Pyodide no navegador, Judge0, subprocess com
 limites de tempo/memória). Os builtins estão restritos, mas isso *não* é uma
 sandbox segura.
 
-> Para suportar OO (Temas 11–12), a whitelist libera `__build_class__`, `object`,
+> Para suportar OO (Temas 12–13), a whitelist libera `__build_class__`, `object`,
 > `super` etc. — necessário para definir classes, mas `object` é um vetor
 > clássico de escape. Reforça a recomendação: deploy aberto → porte as fases
 > Rodar/Modificar para Pyodide (as fases Criar de OO já usam Pyodide).
@@ -115,7 +116,7 @@ programacao-a/
     ├── 00_boas_vindas.py
     ├── 01_pensamento_computacional/   # cada tema é uma pasta NN_nome/
     │   ├── 00_intro.py … 05_criar.py  #   com as 6 fases PRIMM
-    └── 02_tipos/ … 12_heranca/        # 12 temas, todos completos
+    └── 02_tipos/ … 13_heranca/        # 13 temas, todos completos
 ```
 
 ## Sandbox real para o autograder
@@ -138,16 +139,16 @@ exercicio_funcao_sandbox(chave="t1_criar", enunciado="...",
 A 1ª execução baixa ~15 MB do runtime (fica em cache). **Atenção:** os casos de
 teste viajam embutidos na página, então não ficam secretos.
 
-Para tarefas que entregam uma **classe** (Temas 11 e 12), use
+Para tarefas que entregam uma **classe** (Temas 12 e 13), use
 `exercicio_expressoes_sandbox(...)`, que avalia *expressões* em vez de só
 `func(*args)`. Cada caso é um trecho que termina atribuindo o resultado a
 `_res`:
 
 ```python
 from utils.sandbox_pyodide import exercicio_expressoes_sandbox
-exercicio_expressoes_sandbox(chave="t11_criar", enunciado="...",
+exercicio_expressoes_sandbox(chave="t12_criar", enunciado="...",
     cases=[("c = ContaBancaria(100); c.sacar(30); _res = c.saldo", 70)],
-    modelo="class ContaBancaria:\n    ...", nome_tarefa="tema11")
+    modelo="class ContaBancaria:\n    ...", nome_tarefa="tema12")
 ```
 
 ### Opção B — Judge0 (server-side, esconde o gabarito) — `utils/sandbox_judge0.py`
