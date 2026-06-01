@@ -55,6 +55,10 @@ A mesma ideia vale para outras coleções:
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Compreensões de lista](https://docs.python.org/pt-br/3/tutorial/datastructures.html#list-comprehensions)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

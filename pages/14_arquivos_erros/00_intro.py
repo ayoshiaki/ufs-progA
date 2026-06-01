@@ -58,6 +58,10 @@ with open("notas.txt") as f:      # abre o arquivo (e fecha sozinho no fim)
     language="python",
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Erros e exceções (`try`/`except`)](https://docs.python.org/pt-br/3/tutorial/errors.html) e [Leitura e escrita de arquivos](https://docs.python.org/pt-br/3/tutorial/inputoutput.html#reading-and-writing-files)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

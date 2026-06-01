@@ -74,6 +74,10 @@ print(nome or "Anônimo")     # "Ana"      (nome é truthy → fica ele mesmo)
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Teste de valor verdade e operadores booleanos `and`, `or`, `not`](https://docs.python.org/pt-br/3/library/stdtypes.html#truth-value-testing)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

@@ -56,6 +56,10 @@ então a chamamos. A função interna *lembra* o `n` que recebeu — isso se cha
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [HOWTO de Programação Funcional](https://docs.python.org/pt-br/3/howto/functional.html)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

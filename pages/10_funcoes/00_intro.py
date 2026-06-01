@@ -28,6 +28,10 @@ Escreve-se uma vez, usa-se em qualquer lugar — e a regra fica num ponto só.
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Definindo funções](https://docs.python.org/pt-br/3/tutorial/controlflow.html#defining-functions)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

@@ -52,4 +52,8 @@ nunca fica falsa e o programa trava, repetindo para sempre.
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Controle de fluxo — `for`, `range` e `while`](https://docs.python.org/pt-br/3/tutorial/controlflow.html)."
+)
+
 rodape_fases(__file__)

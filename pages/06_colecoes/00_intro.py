@@ -27,6 +27,10 @@ o telefone.
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Estruturas de dados — listas, tuplas e dicionários](https://docs.python.org/pt-br/3/tutorial/datastructures.html)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

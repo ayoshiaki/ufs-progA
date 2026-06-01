@@ -59,6 +59,10 @@ print(f"{7:03d}")            # '007'         -> preenche com zeros
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Métodos de texto (`str`)](https://docs.python.org/pt-br/3/library/stdtypes.html#string-methods)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

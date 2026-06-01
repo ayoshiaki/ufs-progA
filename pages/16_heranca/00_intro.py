@@ -36,6 +36,10 @@ class Retangulo(Forma):
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Herança](https://docs.python.org/pt-br/3/tutorial/classes.html#inheritance)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

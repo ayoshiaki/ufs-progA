@@ -146,6 +146,10 @@ def fib(n):
         """
     )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Definindo funções](https://docs.python.org/pt-br/3/tutorial/controlflow.html#defining-functions) — uma função recursiva chama a si mesma."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

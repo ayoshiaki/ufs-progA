@@ -46,6 +46,10 @@ tabuleiro = [
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Compreensões de lista aninhadas (matriz)](https://docs.python.org/pt-br/3/tutorial/datastructures.html#nested-list-comprehensions)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

@@ -46,6 +46,10 @@ já faz o `filter` + `map` num movimento só. A novidade aqui é o `reduce`, que
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [`map` e `filter` (funções embutidas)](https://docs.python.org/pt-br/3/library/functions.html#map) e [`functools.reduce`](https://docs.python.org/pt-br/3/library/functools.html#functools.reduce)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

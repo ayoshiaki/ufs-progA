@@ -28,6 +28,10 @@ O programa precisa **tomar decisões**. Para isso usamos:
 """
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** [Controle de fluxo — o comando `if`](https://docs.python.org/pt-br/3/tutorial/controlflow.html#if-statements)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

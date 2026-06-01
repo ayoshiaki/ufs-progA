@@ -51,6 +51,10 @@ st.caption(
     "DOI: [10.1145/1118178.1118215](https://doi.org/10.1145/1118178.1118215)."
 )
 
+st.caption(
+    "📖 **Documentação oficial do Python:** comece pelo [Tutorial de Python](https://docs.python.org/pt-br/3/tutorial/index.html)."
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)
