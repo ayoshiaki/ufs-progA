@@ -66,4 +66,64 @@ stb.single_choice(
     error="`or` é `True` se PELO MENOS um lado for `True`. `nota == 5` é `True`, então o resultado é `True`.",
 )
 
+st.divider()
+st.markdown("Agora **truthy/falsy** — como Python lê valores que não são `bool`:")
+
+st.code(
+    '''print(bool(""))
+print(bool("oi"))''',
+    language="python",
+)
+
+stb.single_choice(
+    "O que aparece (duas linhas)?",
+    [
+        "False e True",
+        "True e False",
+        "True e True",
+        "Erro: bool só aceita comparações",
+    ],
+    0,
+    success="Isso! `\"\"` (texto vazio) é falsy → `False`; `\"oi\"` é texto não vazio → `True`.",
+    error="Texto vazio `\"\"` é falsy (`False`); qualquer texto não vazio é truthy (`True`).",
+)
+
+st.divider()
+
+st.code('print(not 0)', language="python")
+
+stb.single_choice(
+    "E aqui?",
+    [
+        "True",
+        "False",
+        "0",
+        "Erro",
+    ],
+    0,
+    success="Exato! `0` é falsy (lido como falso); o `not` inverte → `True`.",
+    error="`0` é falsy. O `not` lê o `0` como falso e inverte para `True`.",
+)
+
+st.divider()
+
+st.code(
+    '''nome = ""
+print(nome or "Anônimo")''',
+    language="python",
+)
+
+stb.single_choice(
+    "Com `nome` vazio, o que imprime?",
+    [
+        "Anônimo",
+        "(uma linha em branco)",
+        "True",
+        "nome",
+    ],
+    0,
+    success="Isso! `nome` é `\"\"` (falsy), então o `or` entrega o segundo valor: `Anônimo`.",
+    error="`or` devolve o primeiro valor truthy. Como `nome` é `\"\"` (falsy), vai o segundo: `Anônimo`.",
+)
+
 rodape_fases(__file__)

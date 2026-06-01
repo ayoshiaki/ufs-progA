@@ -40,6 +40,40 @@ dúvida, use parênteses: `(a and b) or c`.
 """
 )
 
+st.markdown(
+    """
+**Verdadeiro "de fato": truthy e falsy.** Em Python, *qualquer* valor pode ser
+lido como verdadeiro ou falso — não só `True`/`False`. A função `bool(...)`
+revela essa leitura:
+
+- **Falsy** (lidos como falso): `0`, `0.0`, `""` (texto vazio) e `False`.
+  *(Mais adiante você verá que `None` e coleções vazias — `[]`, `{}` — também são.)*
+- **Truthy** (lidos como verdadeiro): **todo o resto** — `5`, `-1`, `"oi"`... e
+  cuidado: `"0"` é um **texto não vazio**, então é **truthy**!
+
+```python
+print(bool(""))     # False
+print(bool("oi"))   # True
+print(not 0)        # True   — 'not' lê 0 como falso e inverte
+```
+
+**`and`/`or` não devolvem só `True`/`False` — devolvem um dos valores.** O `or`
+entrega o **primeiro truthy** (ou o último valor, se todos forem falsy); o `and`,
+o **primeiro falsy**. Daí um truque comum para **valor padrão**:
+
+```python
+nome = ""                    # o usuário não digitou nada
+print(nome or "Anônimo")     # "Anônimo"  (nome é falsy → vai o 2º)
+nome = "Ana"
+print(nome or "Anônimo")     # "Ana"      (nome é truthy → fica ele mesmo)
+```
+
+> 💭 **Pense antes de avançar:** `bool("0")` é `True` ou `False`? E o que
+> `"" or 0 or "fim"` devolve? *(No Tema 4, `if nome:` vai usar exatamente essa
+> leitura truthy/falsy.)*
+"""
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

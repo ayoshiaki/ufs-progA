@@ -37,4 +37,35 @@ stb.multiple_choice(
     error="Revise: o que o `and` exige (um lado ou os dois)? E qual a diferença entre `=` e `==`?",
 )
 
+st.divider()
+st.markdown("Agora **truthy/falsy** — a leitura de verdadeiro/falso de qualquer valor.")
+
+stb.single_choice(
+    "Qual destes valores é **truthy** (lido como verdadeiro)?",
+    [
+        '"0" — o texto zero',
+        "0",
+        '""',
+        "0.0",
+    ],
+    0,
+    success='Isso! Texto NÃO vazio é truthy — mesmo sendo "0". Só o texto vazio "" é falsy.',
+    error='Cuidado: `0`, `0.0` e `""` são falsy; mas `"0"` é um texto NÃO vazio → truthy.',
+)
+
+st.divider()
+
+stb.multiple_choice(
+    "Sobre truthy/falsy e o que `and`/`or` devolvem:",
+    {
+        '`0`, `0.0`, `""` e `False` são falsy.': True,
+        '`bool("oi")` é `True`.': True,
+        '`nome or "Anônimo"` devolve `"Anônimo"` quando `nome` é `""`.': True,
+        "`and` e `or` devolvem um dos operandos, não só `True`/`False`.": True,
+        "Todo texto é truthy, inclusive o texto vazio.": False,
+    },
+    success="Mandou bem! Os falsy básicos são `0`/`0.0`/`\"\"`/`False`; texto não vazio é truthy; e `and`/`or` entregam um dos valores — por isso `nome or padrão` funciona.",
+    error="Revise: o texto vazio `\"\"` é falsy (não é truthy); e `and`/`or` devolvem um dos operandos.",
+)
+
 rodape_fases(__file__)
