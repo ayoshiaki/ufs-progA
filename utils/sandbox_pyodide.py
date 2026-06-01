@@ -575,3 +575,129 @@ def exercicio_script_sandbox(chave, enunciado, casos, modelo="",
         PYVER=pyodide_version,
     )
     components.html(html, height=height, scrolling=True)
+
+
+# ---------------------------------------------------------------------------
+# Variante por SAÍDA — para as fases Rodar/Modificar. Roda o PROGRAMA do aluno
+# no Pyodide, captura o stdout e compara com o esperado. NÃO tem comprovante
+# (Rodar/Modificar não entregam nada). Substitui o exercicio_saida server-side.
+# ---------------------------------------------------------------------------
+
+_HTML_SAIDA = Template(r"""
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; color: #1a1a1a; }
+  textarea { width: 100%; box-sizing: border-box; font-family: ui-monospace, Menlo, Consolas, monospace;
+             font-size: 14px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+  button { font-size: 14px; padding: 8px 16px; border: 0; border-radius: 8px;
+           background: #ff4b4b; color: #fff; cursor: pointer; margin-top: 8px; }
+  button:disabled { background: #bbb; cursor: not-allowed; }
+  .ok { color: #137333; } .fail { color: #c5221f; }
+  .status { margin-top: 10px; font-size: 14px; }
+  pre { background: #f0f0f0; padding: 10px; border-radius: 8px; font-size: 13px;
+        white-space: pre-wrap; word-break: break-word; }
+  code { background: #f0f0f0; padding: 1px 4px; border-radius: 4px; }
+  .rotulo { font-size: 13px; color: #555; margin-top: 12px; }
+</style>
+</head>
+<body>
+  <textarea id="code" rows="10">$MODELO</textarea>
+  <div><button id="run">Rodar e verificar (sandbox)</button>
+       <span class="status" id="status"></span></div>
+  <div class="rotulo">Saída do seu programa:</div>
+  <pre id="saida">(rode para ver)</pre>
+  <div id="erro"></div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v$PYVER/full/pyodide.js"></script>
+<script>
+var EXPECTED = $ESPERADO;
+var pyodideReady = null;
+
+function getPyodide() {
+  if (!pyodideReady) { pyodideReady = loadPyodide(); }
+  return pyodideReady;
+}
+
+var RUNNER = [
+  "import io, json, contextlib, traceback",
+  "ns = {}",
+  "buf = io.StringIO()",
+  "ok = False; erro = None",
+  "try:",
+  "    with contextlib.redirect_stdout(buf):",
+  "        exec(STUDENT_CODE, ns)",
+  "    saida = buf.getvalue()",
+  "    ok = saida.strip() == EXPECTED.strip()",
+  "except Exception:",
+  "    saida = buf.getvalue()",
+  "    erro = traceback.format_exc(limit=3)",
+  "json.dumps({'ok': bool(ok), 'saida': saida, 'erro': erro})"
+].join("\n");
+
+async function run() {
+  var btn = document.getElementById("run");
+  var status = document.getElementById("status");
+  btn.disabled = true;
+  status.textContent = "Carregando sandbox (1ª vez baixa ~15 MB)...";
+  try {
+    var pyodide = await getPyodide();
+    status.textContent = "Executando...";
+    pyodide.globals.set("STUDENT_CODE", document.getElementById("code").value);
+    pyodide.globals.set("EXPECTED", EXPECTED);
+    var out = pyodide.runPython(RUNNER);
+    render(JSON.parse(out));
+  } catch (err) {
+    status.textContent = "Erro ao carregar a sandbox: " + err;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function render(data) {
+  document.getElementById("saida").textContent = data.saida ? data.saida : "(sem saída)";
+  var status = document.getElementById("status");
+  var erroDiv = document.getElementById("erro");
+  if (data.erro) {
+    erroDiv.innerHTML = "<pre class='fail'>" + esc(data.erro) + "</pre>";
+  } else {
+    erroDiv.innerHTML = "";
+  }
+  if (data.ok) {
+    status.innerHTML = "<span class='ok'>🎉 Saída correta!</span>";
+  } else {
+    status.innerHTML = "<span class='fail'>A saída ainda não bate com o esperado.</span>";
+  }
+}
+
+document.getElementById("run").onclick = run;
+</script>
+</body>
+</html>
+""")
+
+
+def exercicio_saida_sandbox(chave, enunciado, esperado, modelo="",
+                            dica="", pyodide_version="0.29.4", height=560):
+    """
+    Tarefa Rodar/Modificar em sandbox Pyodide: roda o PROGRAMA do aluno no
+    navegador, captura o stdout e compara com `esperado` (ignorando espaços nas
+    pontas). Sem comprovante — estas fases não entregam nada.
+
+    Substituto direto do `componentes.exercicio_saida`, sem o parâmetro
+    `stdin_text` (nenhuma página usa entrada padrão).
+    """
+    st.markdown(enunciado)
+    if dica:
+        with st.expander("💡 Dica"):
+            st.markdown(dica)
+    html = _HTML_SAIDA.safe_substitute(
+        MODELO=modelo,
+        ESPERADO=json.dumps(esperado),
+        PYVER=pyodide_version,
+    )
+    components.html(html, height=height, scrolling=True)

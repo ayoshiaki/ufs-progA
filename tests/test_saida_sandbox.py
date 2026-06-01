@@ -74,7 +74,33 @@ def test_modelos_de_modificar_estao_quebrados():
             _ok(f"{rotulo}: modelo está quebrado de propósito", quebrado)
 
 
+def _runner_contrato(codigo, esperado):
+    """Réplica em CPython da lógica do RUNNER do Pyodide (exec + stdout + strip)."""
+    ns = {}
+    buf = io.StringIO()
+    erro = None
+    ok = False
+    try:
+        with contextlib.redirect_stdout(buf):
+            exec(codigo, ns)
+        ok = buf.getvalue().strip() == esperado.strip()
+    except Exception as e:
+        erro = repr(e)
+    return ok, buf.getvalue(), erro
+
+
+def test_contrato_do_runner():
+    ok, saida, erro = _runner_contrato("print('Total:', 5 * 3)", "Total: 15")
+    _ok("saída correta → ok=True, sem erro", ok and erro is None)
+    _ok("captura o stdout", saida.strip() == "Total: 15")
+    ok2, _s, _e = _runner_contrato("print(10)", "20")
+    _ok("saída errada → ok=False", not ok2)
+    ok3, _s, erro3 = _runner_contrato("1/0", "x")
+    _ok("exceção → ok=False e erro preenchido", (not ok3) and erro3 is not None)
+
+
 if __name__ == "__main__":
     test_modelos_de_rodar_produzem_o_esperado()
     test_modelos_de_modificar_estao_quebrados()
+    test_contrato_do_runner()
     print("\n🎉 conteúdo de Rodar/Modificar OK")
