@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -21,7 +21,7 @@ Para `funcao = lambda x: x * 10` e `lista = [1, 2, 3]`, o programa deve imprimir
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t12_modificar",
     enunciado="Use o parâmetro `funcao` em vez da operação fixa `item + 1`.",
     esperado="[10, 20, 30]",
@@ -53,7 +53,7 @@ imprime:
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t12_modificar_fabrica",
     enunciado="Troque o `2` fixo pelo parâmetro `n` na função interna.",
     esperado="50",

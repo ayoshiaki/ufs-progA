@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -14,7 +14,7 @@ Agora confirme. Rode o programa que define `aplicar` e o chama passando a funç�
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t12_rodar",
     enunciado="Faça este programa imprimir `16`.",
     esperado="16",
@@ -48,7 +48,7 @@ nem aparece escrita à mão — ela é fabricada por `multiplicador(2)`.
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t12_rodar_fabrica",
     enunciado="Faça este programa imprimir `10`.",
     esperado="10",

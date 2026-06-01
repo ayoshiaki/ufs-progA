@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -20,7 +20,7 @@ Total com desconto: 13
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t1_modificar",
     enunciado="Modifique o código para aplicar o desconto e ajustar a mensagem.",
     esperado="Total com desconto: 13",

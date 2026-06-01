@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -20,7 +20,7 @@ Para uma conta com 100, sacando 30, o programa deve imprimir:
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t15_modificar",
     enunciado="Adicione o método `sacar` (com a verificação de saldo).",
     esperado="70",

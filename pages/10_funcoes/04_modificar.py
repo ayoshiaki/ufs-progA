@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -20,7 +20,7 @@ Para `preco=10`, `qtd=3` e `desconto=5`, o programa deve imprimir:
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t10_modificar",
     enunciado="Acrescente o parâmetro `desconto` e desconte-o do total.",
     esperado="25",

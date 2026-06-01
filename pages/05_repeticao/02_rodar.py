@@ -3,13 +3,13 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
 st.markdown("Confirme sua previsão: este programa deve imprimir `60`.")
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t5_rodar",
     enunciado="Rode o acumulador de soma.",
     esperado="60",
@@ -30,7 +30,7 @@ Agora um **`while`**: uma contagem regressiva que repete **enquanto**
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t5_rodar_while",
     enunciado="Rode a contagem regressiva com `while`.",
     esperado="5\n4\n3\n2\n1\nFim!",

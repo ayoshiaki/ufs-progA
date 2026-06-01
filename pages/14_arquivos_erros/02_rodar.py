@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -14,7 +14,7 @@ A previsão da fase anterior estava certa?
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t14_rodar",
     enunciado="Faça este programa imprimir `16.0`.",
     esperado="16.0",

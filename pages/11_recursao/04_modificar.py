@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -21,7 +21,7 @@ O programa deve imprimir:
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t11_modificar",
     enunciado="Conserte o caso base para que o fatorial fique correto.",
     esperado="120",

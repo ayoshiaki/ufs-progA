@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -20,7 +20,7 @@ Para um círculo de raio 2, o programa deve imprimir (área ≈ 12.57):
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t16_modificar",
     enunciado="Crie a classe `Circulo(Forma)` com seu próprio `area()`.",
     esperado="12.57",

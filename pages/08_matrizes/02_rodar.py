@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -14,7 +14,7 @@ laço** e conta o **total de minas**. Deve imprimir `3`.
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t8_rodar",
     enunciado="Rode a contagem de minas.",
     esperado="3",

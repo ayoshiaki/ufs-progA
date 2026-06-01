@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -14,7 +14,7 @@ Agora confirme. Rode a classe `ContaBancaria`, crie uma conta com 100 e deposite
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t15_rodar",
     enunciado="Faça este programa imprimir `150`.",
     esperado="150",

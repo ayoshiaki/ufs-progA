@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))
 
 import streamlit as st
-from utils.componentes import exercicio_saida
+from utils.sandbox_pyodide import exercicio_saida_sandbox
 from utils.navegacao import cabecalho, rodape_fases
 
 cabecalho(__file__)
@@ -21,7 +21,7 @@ Para o tabuleiro abaixo, a linha 1, coluna 2 vale `1`, então deve imprimir:
 """
 )
 
-exercicio_saida(
+exercicio_saida_sandbox(
     chave="t8_modificar",
     enunciado="Troque a ordem dos índices para `[linha][coluna]`.",
     esperado="1",
