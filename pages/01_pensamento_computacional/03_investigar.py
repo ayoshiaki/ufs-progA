@@ -36,4 +36,20 @@ stb.multiple_choice(
     error="Revise: o que está entre aspas? O que a vírgula faz?",
 )
 
+st.divider()
+
+stb.single_choice(
+    "Decidir que a **cor** e a **marca** do produto não importam para o cálculo — "
+    "usando só preço e quantidade — é um exemplo de qual pilar?",
+    [
+        "Decomposição",
+        "Abstração",
+        "Reconhecimento de padrões",
+        "Algoritmo",
+    ],
+    1,
+    success="Isso! **Abstração** é justamente ignorar os detalhes que não importam agora e focar no essencial.",
+    error="É **abstração**: focar no essencial (preço e quantidade) e deixar de lado o que não afeta a conta (cor, marca).",
+)
+
 rodape_fases(__file__)
