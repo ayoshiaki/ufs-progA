@@ -17,6 +17,15 @@ import streamlit_book.chapter_config as _chapter_config
 if not hasattr(_chapter_config, "get_query_params"):
     _chapter_config.get_query_params = _chapter_config.get_query
 
+from utils.progresso import salvar_progresso
+
+# Suprime o aviso de "save answers" embutido no streamlit_book (caixa amarela em
+# inglês, com um link relativo `?token=...` incompleto). Definir a flag ANTES de
+# `set_book_config` faz o livro pular esse aviso; o token continua sendo criado.
+# Em seu lugar mostramos `salvar_progresso()` na barra lateral — em português e
+# com a URL completa. Ver utils/progresso.py.
+st.session_state["warned_about_save_answers"] = True
+
 st.set_page_config(
     page_title="Programação A",
     page_icon="🐍",
@@ -77,3 +86,6 @@ stb.set_book_config(
         "nav-link-selected": {"background-color": "#ff4b4b", "font-weight": "600"},
     },
 )
+
+# Nosso cartão "Salvar progresso" na barra lateral (substitui o aviso embutido).
+salvar_progresso()
