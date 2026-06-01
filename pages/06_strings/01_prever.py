@@ -44,4 +44,25 @@ stb.single_choice(
     error="`.lower()` deixa minúsculo; `len(\"Python\")` conta as 6 letras.",
 )
 
+st.divider()
+
+st.code(
+    '''nome = "Ana"
+print(f"Oi, {nome}! Voce tem {3 + 2} mensagens")''',
+    language="python",
+)
+
+stb.single_choice(
+    "O que aparece na tela?",
+    [
+        "Oi, Ana! Voce tem 5 mensagens",
+        "Oi, {nome}! Voce tem {3 + 2} mensagens",
+        "Oi, Ana! Voce tem 3 + 2 mensagens",
+        "Oi, nome! Voce tem 5 mensagens",
+    ],
+    0,
+    success="Isso! Numa f-string, cada `{...}` é trocado pelo seu valor: `{nome}` vira `Ana` e `{3 + 2}` é calculado para `5`.",
+    error="Numa f-string, o que está entre chaves é avaliado: `{nome}` → `Ana`, e `{3 + 2}` → `5`.",
+)
+
 rodape_fases(__file__)

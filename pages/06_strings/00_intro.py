@@ -17,6 +17,23 @@ Texto, em programação, é uma **string** (`str`). E strings têm superpoderes:
 - **indexação e fatiamento** — `texto[0]`, `texto[::-1]` (inverte!)
 - **métodos** — `.lower()`, `.upper()`, `.strip()`, `.replace()`, `.split()`
 - **tamanho** — `len(texto)`
+- **f-strings** — montar texto com valores embutidos: `f"Olá, {nome}!"`
+
+**Montando textos com f-strings.** Para juntar texto com valores, em vez de
+`print("Oi,", nome)` (com vírgulas) use uma **f-string**: ponha um `f` antes das
+aspas e escreva o que quiser mostrar entre chaves `{ }`.
+
+```python
+nome = "Ana"
+idade = 20
+print(f"{nome} tem {idade} anos")   # Ana tem 20 anos
+```
+
+Dentro das chaves cabe qualquer **expressão**, não só um nome de variável:
+
+```python
+print(f"O dobro de {idade} é {idade * 2}")   # O dobro de 20 é 40
+```
 
 > 💭 **Pense antes de avançar:** "Arara" começa com A maiúsculo e "arara"
 > com minúsculo. Para o computador, esses dois textos são *iguais*? Se não,

@@ -30,10 +30,11 @@ stb.multiple_choice(
         "`texto[::-1]` devolve o texto invertido.": True,
         "`.lower()` ajuda a comparar ignorando maiúsculas/minúsculas.": True,
         '`"a e a".replace(" ", "")` remove os espaços, virando `"aea"`.': True,
+        'Numa f-string, `f"{2 + 3}"` vira `"5"` (a expressão é calculada).': True,
         "Strings podem ter um caractere trocado com `texto[0] = \"X\"`.": False,
     },
-    success="Mandou bem! Fatiar, `.lower()` e `.replace()` criam textos novos — e você NÃO pode alterar uma letra no lugar (string é imutável).",
-    error="Revise: dá para fazer `texto[0] = \"X\"`? (Não — string é imutável.) O que `.replace(\" \", \"\")` faz?",
+    success="Mandou bem! Fatiar, `.lower()`, `.replace()` e f-strings criam textos novos — e você NÃO pode alterar uma letra no lugar (string é imutável).",
+    error="Revise: dá para fazer `texto[0] = \"X\"`? (Não — string é imutável.) E o que aparece dentro de `{ }` numa f-string é avaliado.",
 )
 
 rodape_fases(__file__)
