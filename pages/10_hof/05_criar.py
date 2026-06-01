@@ -9,12 +9,12 @@ from utils.navegacao import cabecalho, rodape_tema, rodape_fases
 cabecalho(__file__)
 st.markdown(
     """
-Hora de resolver sozinho. Escreva uma **função de ordem superior**
-`aplicar_duas_vezes(funcao, valor)` que aplique `funcao` ao `valor` **duas
-vezes** e **devolva** o resultado — ou seja, `funcao(funcao(valor))`.
+Hora de resolver sozinho — agora **fabricando** uma função. Escreva uma **função
+de ordem superior** `criar_multiplicador(n)` que **devolve** uma nova função:
+essa função recebe um `x` e devolve `x * n`.
 
-Exemplo: com `lambda x: x + 1` e `valor = 10`, o resultado é `12` (soma 1, e
-soma 1 de novo).
+Exemplo: `criar_multiplicador(2)` devolve uma função que dobra — aplicada a `5`,
+dá `10`. Já `criar_multiplicador(10)` aplicada a `5` dá `50`.
 
 O código roda numa **sandbox no seu navegador** (WebAssembly) — nada é executado
 no servidor. Feche todos os testes para liberar o comprovante de entrega.
@@ -23,20 +23,21 @@ no servidor. Feche todos os testes para liberar o comprovante de entrega.
 
 exercicio_expressoes_sandbox(
     chave="t10_criar",
-    enunciado="Implemente a função `aplicar_duas_vezes`:",
+    enunciado="Implemente a função `criar_multiplicador`:",
     cases=[
-        ("_res = aplicar_duas_vezes(lambda x: x + 1, 10)", 12),
-        ("_res = aplicar_duas_vezes(lambda x: x * 2, 3)", 12),
-        ("_res = aplicar_duas_vezes(lambda x: x - 5, 100)", 90),
-        ("_res = aplicar_duas_vezes(str.upper, 'oi')", "OI"),
+        ("_res = criar_multiplicador(2)(5)", 10),
+        ("_res = criar_multiplicador(10)(5)", 50),
+        ("_res = criar_multiplicador(3)(3)", 9),
+        ("_res = criar_multiplicador(0)(99)", 0),
     ],
     modelo=(
-        "def aplicar_duas_vezes(funcao, valor):\n"
-        "    # aplique 'funcao' ao 'valor', e depois de novo ao resultado\n"
-        "    return valor"
+        "def criar_multiplicador(n):\n"
+        "    # defina aqui dentro uma função que recebe x e devolve x * n,\n"
+        "    # e DEVOLVA essa função (sem chamá-la)\n"
+        "    return None"
     ),
-    dica="Aplique uma vez: `funcao(valor)`. Aplique de novo no resultado: `funcao(funcao(valor))`. Use `return`.",
-    nome_tarefa="tema10_aplicar_duas_vezes",
+    dica="Dentro de `criar_multiplicador`, escreva `def multiplica(x): return x * n` e depois `return multiplica`. Não chame a função — devolva-a.",
+    nome_tarefa="tema10_criar_multiplicador",
 )
 
 rodape_fases(__file__)

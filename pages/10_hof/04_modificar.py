@@ -37,4 +37,36 @@ exercicio_saida(
     dica="Troque `item + 1` por `funcao(item)`. Assim a ação passada é que decide o resultado.",
 )
 
+st.divider()
+st.markdown(
+    """
+Agora o **outro lado**. `multiplicador(n)` deveria fabricar uma função que
+multiplica pelo `n` recebido — mas a função interna está com um **número fixo**
+(`* 2`), ignorando o `n`. **Conserte** para que ela use o `n`.
+
+Com a correção, `multiplicador(10)` fabrica uma função que, aplicada a `5`,
+imprime:
+
+```
+50
+```
+"""
+)
+
+exercicio_saida(
+    chave="t10_modificar_fabrica",
+    enunciado="Troque o `2` fixo pelo parâmetro `n` na função interna.",
+    esperado="50",
+    modelo=(
+        "def multiplicador(n):\n"
+        "    def multiplica(x):\n"
+        "        return x * 2     # <- fixo: ignora 'n'\n"
+        "    return multiplica\n"
+        "\n"
+        "por_dez = multiplicador(10)\n"
+        "print(por_dez(5))"
+    ),
+    dica="Troque `x * 2` por `x * n`. Assim a função fabricada respeita o `n` que chegou.",
+)
+
 rodape_fases(__file__)

@@ -31,6 +31,31 @@ Para ações curtas existe a `lambda`: uma função **sem nome**, escrita numa l
 """
 )
 
+st.markdown(
+    """
+**E o outro lado:** uma função também pode **devolver** outra função — ela
+*fabrica* uma função sob medida e a entrega pronta.
+
+```python
+def multiplicador(n):
+    def multiplica(x):
+        return x * n      # 'multiplica' lembra o 'n' que chegou
+    return multiplica
+
+dobro = multiplicador(2)   # fabrica uma função que multiplica por 2
+print(dobro(5))            # 10
+```
+
+Repare: `multiplicador(2)` **não multiplica nada ainda** — ele monta uma função
+nova (que multiplica por `2`) e a devolve. Guardamos essa função em `dobro` e só
+então a chamamos. A função interna *lembra* o `n` que recebeu — isso se chama
+**fechamento** (*closure*).
+
+> 💭 **Pense antes de avançar:** se `triplo = multiplicador(3)`, quanto imprime
+> `triplo(10)`? E `multiplicador(3)` sozinho — é um número ou uma função?
+"""
+)
+
 st.info("Use os botões **‹ ›** no topo para navegar entre as fases.")
 
 rodape_fases(__file__)

@@ -40,4 +40,37 @@ chamar lá dentro.
 """
 )
 
+st.divider()
+st.markdown(
+    """
+Agora o **outro lado**: rode uma função que **devolve** outra função. A `dobro`
+nem aparece escrita à mão — ela é fabricada por `multiplicador(2)`.
+"""
+)
+
+exercicio_saida(
+    chave="t10_rodar_fabrica",
+    enunciado="Faça este programa imprimir `10`.",
+    esperado="10",
+    modelo=(
+        "def multiplicador(n):\n"
+        "    def multiplica(x):\n"
+        "        return x * n\n"
+        "    return multiplica\n"
+        "\n"
+        "dobro = multiplicador(2)\n"
+        "print(dobro(5))"
+    ),
+    dica="Já está pronto — é só rodar. `multiplicador(2)` fabrica a função guardada em `dobro`.",
+)
+
+st.divider()
+st.markdown(
+    """
+💡 **O que observar:** a chamada acontece em **dois passos**. Primeiro
+`multiplicador(2)` devolve uma função; depois você chama essa função com `(5)`.
+Dá até para juntar tudo numa linha: `multiplicador(2)(5)` também vale `10`.
+"""
+)
+
 rodape_fases(__file__)
