@@ -42,7 +42,8 @@ _CARTAO = Template(r"""
   <div class="card">
     <div class="titulo">💾 Salvar progresso</div>
     <p class="ajuda">Guarde este link. Ao abri-lo de novo, suas respostas das
-       fases voltam — mesmo em outro dia ou computador.</p>
+       fases voltam — mesmo em outro dia ou computador. Trate-o como pessoal:
+       quem tiver o link vê o seu progresso.</p>
     <input id="url" readonly value="">
     <button id="btn">Copiar link</button>
     <span class="msg" id="msg"></span>

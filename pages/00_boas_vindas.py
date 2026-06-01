@@ -3,8 +3,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 import streamlit as st
-from utils import quiz as stb  # embaralha as alternativas dos quizzes
-from utils.navegacao import mapa_curso, legenda_fases, TOTAL_TEMAS
+from utils.navegacao import legenda_fases, TOTAL_TEMAS
 
 st.title("🐍 Programação A")
 st.caption("Do pensamento computacional à orientação a objetos — um problema de cada vez.")
@@ -14,52 +13,45 @@ st.markdown(
 Bem-vindo! Este curso é feito de **problemas com dificuldade crescente**.
 São **{TOTAL_TEMAS} temas**, e em cada um você não vai só assistir — vai
 **prever, rodar, investigar, modificar e criar** código.
-
-### Os {TOTAL_TEMAS} temas do curso
 """
 )
 
-mapa_curso()
-
 st.markdown(
     f"""
-Cada item do **menu lateral** é um desses {TOTAL_TEMAS} temas. Dentro dele, você
-avança pelas mesmas **5 fases** com os botões **‹ ›** no topo.
+### O método de ensino: PRIMM
 
-### As 5 fases de cada tema (PRIMM)
+Cada item do **menu lateral** é um dos {TOTAL_TEMAS} temas, e dentro de cada um
+você percorre as mesmas **cinco fases**, sempre com os botões **‹ ›** no topo.
+Essas fases seguem o método **PRIMM** — sigla, em inglês, de *Predict, Run,
+Investigate, Modify, Make*, que aqui chamamos de **Prever, Rodar, Investigar,
+Modificar e Criar**.
+
+A premissa do PRIMM é que se aprende a programar **lendo e compreendendo código
+antes de escrevê-lo do zero**. Em vez de encarar uma página em branco, você parte
+de um programa que já funciona: primeiro **prevê** o que ele faz, depois o **roda**
+para confirmar (ou se surpreender com) a previsão, **investiga** o *porquê* do
+comportamento, faz pequenas **modificações** para mudar o resultado e, só então,
+**cria** um programa novo — a tarefa que você entrega. Essa caminhada do ler para
+o escrever distribui a dificuldade em passos curtos, reduz a sobrecarga de quem
+está começando e dá segurança a cada etapa: as quatro primeiras fases são de
+autocorreção (você vê na hora se acertou) e a última gera um **comprovante de
+entrega**.
+
+O PRIMM foi proposto por **Sue Sentance e Jane Waite** e fundamentado numa
+perspectiva **sociocultural** da aprendizagem — na tradição de Vygotsky, em que a
+linguagem e a mediação social precedem a construção individual do conhecimento —,
+com evidências de ganho de aprendizado em sala de aula (Sentance, Waite e Kallia,
+2019).
 """
 )
 
 legenda_fases()
 
-st.markdown(
-    """
-### O que você faz em cada fase
-1. **🔮 Prever** — leia um trecho de código e adivinhe o que ele faz, *antes* de rodar.
-2. **▶️ Rodar** — execute e confira se sua previsão estava certa.
-3. **🔍 Investigar** — responda perguntas sobre *por que* o código se comporta assim.
-4. **🔧 Modificar** — altere o código para mudar o comportamento.
-5. **🛠️ Criar** — resolva um problema novo do zero. **Esta é a tarefa que você entrega.**
-
-As fases 1–4 são curtas e de autocorreção (clique e veja na hora se acertou).
-A fase 5 gera um **comprovante de entrega** para você anexar onde o professor indicar.
-
-### Regras do jogo
-- Tente prever **antes** de rodar — é aí que o aprendizado acontece.
-- Errar é parte do processo: os testes existem para te dar pistas, não nota.
-- Só avance de tema quando fechar a fase **Criar**.
-"""
-)
-
-stb.to_do_list(
-    {
-        "Tenho Python 3.10+ instalado (ou vou usar o app na nuvem)": False,
-        "Sei abrir e rodar este livro": False,
-        "Entendi as 5 fases de cada tema": False,
-        "Sei onde entregar o comprovante da fase Criar": False,
-    },
-    header="### ✅ Checklist antes de começar",
-    success="Tudo pronto. Bora para o Tema 1!",
+st.caption(
+    "**Referência:** SENTANCE, S.; WAITE, J.; KALLIA, M. *Teaching computer "
+    "programming with PRIMM: a sociocultural perspective.* Computer Science "
+    "Education, v. 29, n. 2–3, p. 136–176, 2019. "
+    "DOI: [10.1080/08993408.2019.1608781](https://doi.org/10.1080/08993408.2019.1608781)."
 )
 
 st.divider()
