@@ -21,15 +21,16 @@ import streamlit as st
 TEMAS = {
     1: "Pensamento computacional",
     2: "Tipos e expressões",
-    3: "Condicionais",
-    4: "Repetição",
-    5: "Listas, tuplas e dicionários",
-    6: "Strings",
-    7: "Funções",
-    8: "Funções de ordem superior",
-    9: "Arquivos e erros",
-    10: "Introdução a objetos",
-    11: "OO: herança e polimorfismo",
+    3: "Expressões booleanas",
+    4: "Condicionais",
+    5: "Repetição",
+    6: "Listas, tuplas e dicionários",
+    7: "Strings",
+    8: "Funções",
+    9: "Funções de ordem superior",
+    10: "Arquivos e erros",
+    11: "Introdução a objetos",
+    12: "OO: herança e polimorfismo",
 }
 
 # Fase -> (emoji, nome). Espelha o método PRIMM da página de boas-vindas.

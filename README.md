@@ -11,7 +11,7 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-Abre no navegador. O menu lateral lista os 11 temas; dentro de cada tema, os
+Abre no navegador. O menu lateral lista os 12 temas; dentro de cada tema, os
 botões **‹ ›** no topo navegam entre as fases.
 
 ## O método: 5 fases por tema (PRIMM)
@@ -32,37 +32,46 @@ baixável (com nome, matrícula, carimbo de tempo e hash).
 
 ## Plano de temas
 
-1. **Pensamento computacional** — entrada/processamento/saída, variáveis ✅ *completo*
-2. **Tipos e expressões** — int/float/str, operadores ✅ *completo*
-3. **Condicionais** — `if/elif/else` ✅ *completo*
-4. **Repetição** — `for`, `while`, acumuladores ✅ *completo*
-5. **Listas, tuplas e dicionários** ✅ *completo*
-6. **Strings** ✅ *completo*
-7. **Funções** ✅ *completo*
-8. **Arquivos e tratamento de erros** ✅ *completo*
-9. **Introdução a objetos** — classes, atributos, métodos ✅ *completo*
-10. **OO: herança e polimorfismo** ✅ *completo*
+1. **Pensamento computacional** — entrada/processamento/saída, variáveis, pilares ✅ *completo*
+2. **Tipos e expressões** — int/float/str/bool, operadores, precedência ✅ *completo*
+3. **Expressões booleanas** — comparações, `and`/`or`/`not` ✅ *completo*
+4. **Condicionais** — `if/elif/else` ✅ *completo*
+5. **Repetição** — `for`, `while`, acumuladores ✅ *completo*
+6. **Listas, tuplas e dicionários** ✅ *completo*
+7. **Strings** — fatiamento, métodos, f-strings ✅ *completo*
+8. **Funções** ✅ *completo*
+9. **Funções de ordem superior** — função como argumento, `lambda` ✅ *completo*
+10. **Arquivos e tratamento de erros** ✅ *completo*
+11. **Introdução a objetos** — classes, atributos, métodos ✅ *completo*
+12. **OO: herança e polimorfismo** ✅ *completo*
 
-Todos os 11 temas estão completos, cada um com as 5 fases PRIMM. As fases
+Todos os 12 temas estão completos, cada um com as 5 fases PRIMM. As fases
 "Criar" (entrega) rodam na sandbox Pyodide (WebAssembly, client-side).
 
-> **Nota sobre o Tema 8:** a tarefa de entrega é `media_notas(linhas)` —
-> recebe a lista de linhas já lidas (não um caminho de arquivo), porque a
-> sandbox do navegador não tem acesso ao sistema de arquivos do servidor. As
-> fases 0–4 ainda ensinam `with open(...)` e `try/except`.
+> **Nota sobre o Tema 10 (Arquivos e erros):** a tarefa de entrega é
+> `media_notas(linhas)` — recebe a lista de linhas já lidas (não um caminho de
+> arquivo), porque a sandbox do navegador não tem acesso ao sistema de arquivos
+> do servidor. As fases 0–4 ainda ensinam `with open(...)` e `try/except`.
 
-## Como criar um novo tema
+## Como criar (ou reposicionar) um tema
 
-1. Copie a pasta `pages/01_pensamento_computacional/`.
-2. Renomeie para o tema (ex.: `pages/03_condicionais/`) — já existe a pasta;
-   substitua o `00_em_construcao.py` pelos arquivos de fase.
-3. Edite cada fase. Os componentes prontos estão em `utils/componentes.py`:
-   - `exercicio_funcao(chave, enunciado, func_name, cases, modelo, dica)`
-     testa uma função do aluno contra casos `[((args), esperado), ...]`.
-   - `exercicio_saida(chave, enunciado, esperado, modelo, stdin_text, dica)`
-     compara a saída (stdout) com a esperada.
-   - `comprovante(nome_tarefa, codigo_ok)` gera o recibo de entrega.
-4. As páginas são lidas em ordem alfabética do nome do arquivo (`00_`, `01_`…).
+A estrutura é convenção sobre configuração: a **pasta** `pages/NN_nome/` define o
+tema (o prefixo `NN` é a ordem) e o prefixo de cada arquivo (`00_`…`05_`) define a
+fase. Para um tema novo:
+
+1. Copie uma pasta existente (ex.: `pages/01_pensamento_computacional/`) para
+   `pages/NN_nome/`, na **posição didática** certa — se inserir no meio, renumere
+   as pastas seguintes com `git mv` (e atualize os identificadores `chave`/
+   `nome_tarefa` dentro delas).
+2. Edite as 6 fases. Componentes prontos:
+   - `exercicio_saida(chave, enunciado, esperado, modelo, stdin_text, dica)` —
+     compara a saída (stdout). Usado nas fases Rodar/Modificar.
+   - `exercicio_funcao_sandbox(...)` / `exercicio_expressoes_sandbox(...)` em
+     `utils/sandbox_pyodide.py` — testam função/expressão na sandbox. Fase Criar.
+3. Registre o tema nas **duas fontes-espelho** (precisam concordar):
+   `streamlit_app.py` (`options`/`paths`/`icons`) e `utils/navegacao.py` (`TEMAS`).
+4. Rode `python tests/test_estrutura_temas.py` — ele garante que pastas, `TEMAS` e
+   as listas de `streamlit_app.py` batem (numeração contígua 1..N).
 
 ## Coletando as entregas
 
@@ -84,7 +93,7 @@ substitua por uma sandbox real (Pyodide no navegador, Judge0, subprocess com
 limites de tempo/memória). Os builtins estão restritos, mas isso *não* é uma
 sandbox segura.
 
-> Para suportar OO (Temas 9–10), a whitelist libera `__build_class__`, `object`,
+> Para suportar OO (Temas 11–12), a whitelist libera `__build_class__`, `object`,
 > `super` etc. — necessário para definir classes, mas `object` é um vetor
 > clássico de escape. Reforça a recomendação: deploy aberto → porte as fases
 > Rodar/Modificar para Pyodide (as fases Criar de OO já usam Pyodide).
@@ -98,13 +107,15 @@ programacao-a/
 ├── README.md
 ├── utils/
 │   ├── autograder.py         # executa e testa código do aluno
-│   └── componentes.py        # caixas de exercício + comprovante
+│   ├── componentes.py        # caixas de exercício + comprovante
+│   ├── navegacao.py          # bússola: tema/fase derivados do caminho
+│   ├── progresso.py          # cartão "Salvar progresso" na sidebar
+│   └── sandbox_pyodide.py    # sandbox WebAssembly (fases "Criar")
 └── pages/
     ├── 00_boas_vindas.py
-    ├── 01_pensamento_computacional/   # tema completo (modelo)
-    │   ├── 00_intro.py … 05_criar.py
-    ├── 04_repeticao/                  # tema completo (modelo)
-    └── 02… 03… 05…10…/                # placeholders prontos para preencher
+    ├── 01_pensamento_computacional/   # cada tema é uma pasta NN_nome/
+    │   ├── 00_intro.py … 05_criar.py  #   com as 6 fases PRIMM
+    └── 02_tipos/ … 12_heranca/        # 12 temas, todos completos
 ```
 
 ## Sandbox real para o autograder
@@ -115,7 +126,7 @@ execução isolada de verdade, há dois caminhos prontos:
 ### Opção A — Pyodide (recomendada, grátis, client-side) — `utils/sandbox_pyodide.py`
 O código do aluno roda no **navegador dele**, compilado para WebAssembly. Nada é
 executado no servidor → seguro para o Streamlit Community Cloud, sem custo de CPU.
-Já está ligado nas fases "Criar" dos Temas 1 e 4:
+Já está ligado em **todas** as fases "Criar":
 
 ```python
 from utils.sandbox_pyodide import exercicio_funcao_sandbox
@@ -127,16 +138,16 @@ exercicio_funcao_sandbox(chave="t1_criar", enunciado="...",
 A 1ª execução baixa ~15 MB do runtime (fica em cache). **Atenção:** os casos de
 teste viajam embutidos na página, então não ficam secretos.
 
-Para tarefas que entregam uma **classe** (Temas 9 e 10), use
+Para tarefas que entregam uma **classe** (Temas 11 e 12), use
 `exercicio_expressoes_sandbox(...)`, que avalia *expressões* em vez de só
 `func(*args)`. Cada caso é um trecho que termina atribuindo o resultado a
 `_res`:
 
 ```python
 from utils.sandbox_pyodide import exercicio_expressoes_sandbox
-exercicio_expressoes_sandbox(chave="t9_criar", enunciado="...",
+exercicio_expressoes_sandbox(chave="t11_criar", enunciado="...",
     cases=[("c = ContaBancaria(100); c.sacar(30); _res = c.saldo", 70)],
-    modelo="class ContaBancaria:\n    ...", nome_tarefa="tema9")
+    modelo="class ContaBancaria:\n    ...", nome_tarefa="tema11")
 ```
 
 ### Opção B — Judge0 (server-side, esconde o gabarito) — `utils/sandbox_judge0.py`
