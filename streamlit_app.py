@@ -60,7 +60,8 @@ stb.set_book_config(
         "13 · Fluxo de dados: map, filter, reduce",
         "14 · Arquivos e erros",
         "15 · Introdução a objetos",
-        "16 · OO: herança e polimorfismo",
+        "16 · Encapsulamento",
+        "17 · OO: herança e polimorfismo",
     ],
     paths=[
         current / "00_boas_vindas.py",
@@ -79,13 +80,14 @@ stb.set_book_config(
         current / "13_fluxo_dados",
         current / "14_arquivos_erros",
         current / "15_objetos",
-        current / "16_heranca",
+        current / "16_encapsulamento",
+        current / "17_heranca",
     ],
     icons=[
         "house", "lightbulb", "calculator", "toggles", "signpost-split",
         "arrow-repeat", "list-ul", "braces", "grid-3x3", "fonts", "box",
         "infinity", "arrow-right-circle", "funnel", "file-earmark",
-        "diagram-3", "diagram-3-fill",
+        "diagram-3", "shield-lock", "diagram-3-fill",
     ],
     save_answers=True,
     # Esconde a legenda "Page X of Y. File: <caminho>" (vazava o caminho do

@@ -34,7 +34,8 @@ TEMAS = {
     13: "Fluxo de dados: map, filter, reduce",
     14: "Arquivos e erros",
     15: "Introdução a objetos",
-    16: "OO: herança e polimorfismo",
+    16: "Encapsulamento",
+    17: "OO: herança e polimorfismo",
 }
 
 # Fase -> (emoji, nome). Espelha o método PRIMM da página de boas-vindas.

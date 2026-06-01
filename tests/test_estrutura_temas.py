@@ -116,15 +116,21 @@ def test_temas_novos_no_lugar_certo():
     matrizes = num("Matrizes")
     hof = num("Funções de ordem superior")
     fluxo = num("Fluxo de dados: map, filter, reduce")
+    objetos = num("Introdução a objetos")
+    encapsulamento = num("Encapsulamento")
     _ok("Compreensões vem imediatamente após Coleções", compreensoes == colecoes + 1)
     _ok("Matrizes vem imediatamente após Compreensões", matrizes == compreensoes + 1)
     _ok("Fluxo de dados vem imediatamente após HOF", fluxo == hof + 1)
+    _ok("Encapsulamento vem imediatamente após Introdução a objetos",
+        encapsulamento == objetos + 1)
     _ok("pasta de Compreensões existe", any(
         p.name.endswith("_compreensoes") for p in _pastas_de_tema()))
     _ok("pasta de Matrizes existe", any(
         p.name.endswith("_matrizes") for p in _pastas_de_tema()))
     _ok("pasta de Fluxo de dados existe", any(
         p.name.endswith("_fluxo_dados") for p in _pastas_de_tema()))
+    _ok("pasta de Encapsulamento existe", any(
+        p.name.endswith("_encapsulamento") for p in _pastas_de_tema()))
 
 
 if __name__ == "__main__":

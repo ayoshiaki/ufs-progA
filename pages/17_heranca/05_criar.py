@@ -22,7 +22,7 @@ para liberar o comprovante de entrega.
 )
 
 exercicio_expressoes_sandbox(
-    chave="t16_criar",
+    chave="t17_criar",
     enunciado="Implemente `Forma`, `Retangulo` e `Circulo`:",
     cases=[
         ("_res = Retangulo(3, 4).area()", 12),
@@ -51,7 +51,7 @@ exercicio_expressoes_sandbox(
         "        return 0"
     ),
     dica="Retangulo: `return self.base * self.altura`. Circulo: `return 3.14159 * self.raio * self.raio`.",
-    nome_tarefa="tema16_formas",
+    nome_tarefa="tema17_formas",
 )
 
 rodape_fases(__file__)
