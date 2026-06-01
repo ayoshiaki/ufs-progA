@@ -22,7 +22,7 @@ Para `funcao = lambda x: x * 10` e `lista = [1, 2, 3]`, o programa deve imprimir
 )
 
 exercicio_saida(
-    chave="t11_modificar",
+    chave="t8_modificar",
     enunciado="Use o parâmetro `funcao` em vez da operação fixa `item + 1`.",
     esperado="[10, 20, 30]",
     modelo=(

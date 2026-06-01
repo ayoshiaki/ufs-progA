@@ -15,7 +15,7 @@ retângulo 3×4. A previsão da fase anterior estava certa?
 )
 
 exercicio_saida(
-    chave="t10_rodar",
+    chave="t11_rodar",
     enunciado="Faça este programa imprimir `12`.",
     esperado="12",
     modelo=(

@@ -23,7 +23,7 @@ comprovante de entrega.
 )
 
 exercicio_expressoes_sandbox(
-    chave="t9_criar",
+    chave="t10_criar",
     enunciado="Implemente a classe `ContaBancaria`:",
     cases=[
         ("c = ContaBancaria(100); c.depositar(50); _res = c.saldo", 150),
@@ -45,7 +45,7 @@ exercicio_expressoes_sandbox(
         "        pass"
     ),
     dica="Em `depositar`: `self.saldo = self.saldo + valor`. Em `sacar`: `if valor <= self.saldo: self.saldo = self.saldo - valor`.",
-    nome_tarefa="tema9_conta_bancaria",
+    nome_tarefa="tema10_conta_bancaria",
 )
 
 rodape_fases(__file__)

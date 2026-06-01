@@ -26,14 +26,19 @@ def _temas_no_disco():
     return sorted(int(p.name.split("_")[0]) for p in _pastas_de_tema())
 
 
-def _temas_em_navegacao():
+def _nomes_em_navegacao():
     arvore = ast.parse((RAIZ / "utils" / "navegacao.py").read_text())
     for node in ast.walk(arvore):
         if (isinstance(node, ast.Assign)
                 and any(isinstance(t, ast.Name) and t.id == "TEMAS"
                         for t in node.targets)):
-            return sorted(k.value for k in node.value.keys)
+            return {k.value: v.value
+                    for k, v in zip(node.value.keys, node.value.values)}
     raise AssertionError("TEMAS não encontrado em navegacao.py")
+
+
+def _temas_em_navegacao():
+    return sorted(_nomes_em_navegacao())
 
 
 def _tamanhos_streamlit_app():
@@ -69,13 +74,27 @@ def test_fontes_espelho_concordam():
         tam["options"] == len(temas) + 1)
 
 
-def test_tema_11_hof_existe():
-    _ok("pasta 11_hof existe", (PAGES / "11_hof").is_dir())
-    _ok("11 presente em TEMAS", 11 in _temas_em_navegacao())
+def test_temas_contiguos_de_1_a_n():
+    temas = _temas_no_disco()
+    _ok("temas numerados 1..N sem buracos",
+        temas == list(range(1, len(temas) + 1)))
+
+
+def test_hof_logo_apos_funcoes():
+    nomes = _nomes_em_navegacao()
+    funcoes = [n for n, nome in nomes.items() if nome == "Funções"]
+    hof = [n for n, nome in nomes.items() if nome == "Funções de ordem superior"]
+    _ok("tema 'Funções' existe", len(funcoes) == 1)
+    _ok("tema 'Funções de ordem superior' existe", len(hof) == 1)
+    # Decisão didática: HOF é a extensão natural de Funções e vem logo depois.
+    _ok("HOF vem imediatamente após Funções", hof[0] == funcoes[0] + 1)
+    _ok("pasta de HOF existe", any(
+        p.name.endswith("_hof") for p in _pastas_de_tema()))
 
 
 if __name__ == "__main__":
     test_toda_pasta_de_tema_tem_as_6_fases()
     test_fontes_espelho_concordam()
-    test_tema_11_hof_existe()
+    test_temas_contiguos_de_1_a_n()
+    test_hof_logo_apos_funcoes()
     print("\n🎉 estrutura dos temas OK")

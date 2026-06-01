@@ -9,15 +9,21 @@ from utils.navegacao import cabecalho, rodape_fases
 cabecalho(__file__)
 st.markdown(
     """
-Agora confirme. Rode a classe `ContaBancaria`, crie uma conta com 100 e deposite
-50. A previsão da fase anterior estava certa?
+A conta só sabe depositar. **Adicione um método** `sacar(valor)` que **só
+desconta se houver saldo suficiente** (senão, não faz nada).
+
+Para uma conta com 100, sacando 30, o programa deve imprimir:
+
+```
+70
+```
 """
 )
 
 exercicio_saida(
-    chave="t9_rodar",
-    enunciado="Faça este programa imprimir `150`.",
-    esperado="150",
+    chave="t10_modificar",
+    enunciado="Adicione o método `sacar` (com a verificação de saldo).",
+    esperado="70",
     modelo=(
         "class ContaBancaria:\n"
         "    def __init__(self, saldo):\n"
@@ -26,20 +32,13 @@ exercicio_saida(
         "    def depositar(self, valor):\n"
         "        self.saldo = self.saldo + valor\n"
         "\n"
+        "    # crie aqui o metodo sacar(self, valor)\n"
+        "\n"
         "c = ContaBancaria(100)\n"
-        "c.depositar(50)\n"
+        "c.sacar(30)\n"
         "print(c.saldo)"
     ),
-    dica="Já está pronto no modelo — é só rodar para confirmar sua previsão.",
-)
-
-st.divider()
-st.markdown(
-    """
-💡 **O que observar:** `c.depositar(50)` não passa nada para o `self` — o Python
-faz isso por você. `self` *é* o objeto `c`. Por isso `self.saldo` lá dentro é o
-mesmo `c.saldo` aqui fora.
-"""
+    dica="No corpo do método: `if valor <= self.saldo:` e dentro `self.saldo = self.saldo - valor`.",
 )
 
 rodape_fases(__file__)

@@ -26,10 +26,10 @@ TEMAS = {
     5: "Listas, tuplas e dicionários",
     6: "Strings",
     7: "Funções",
-    8: "Arquivos e erros",
-    9: "Introdução a objetos",
-    10: "OO: herança e polimorfismo",
-    11: "Funções de ordem superior",
+    8: "Funções de ordem superior",
+    9: "Arquivos e erros",
+    10: "Introdução a objetos",
+    11: "OO: herança e polimorfismo",
 }
 
 # Fase -> (emoji, nome). Espelha o método PRIMM da página de boas-vindas.
@@ -124,7 +124,7 @@ def rodape_tema(arquivo):
     else:
         st.success(
             f"🎉 **Você completou os {TOTAL_TEMAS} temas de Programação A!** "
-            "Do pensamento computacional às funções de ordem superior — parabéns."
+            "Do pensamento computacional à orientação a objetos — parabéns."
         )
 
 
